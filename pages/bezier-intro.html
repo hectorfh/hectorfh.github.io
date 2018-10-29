@@ -1,0 +1,127 @@
+
+    <!doctype html>
+    <html>
+    <head>
+      <title>Tito's site</title>
+      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+      <link rel="stylesheet" href="../css/bootstrap.min.css" />
+      <link rel="stylesheet" href="../css/bootstrap-theme.min.css" />
+      <style>
+        body {
+          font-size: 18px !important;
+        }
+
+        @media (min-width: 1200px) {
+          .container {
+            width: 970px;
+          }
+        }
+
+        li {
+          list-style: circle;
+          padding-bottom: 15px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div>
+              <div style="margin-top:20px">
+                <h1 style="display:inline">
+                    H&eacute;ctor Francisco Hern&aacute;ndez
+                </h1>
+                <p style="font-weight:none; display:inline">&nbsp;(a.k.a. Tito)<p>
+              <div>
+                <p>
+                    <img src="../img/dilbert17.jpg" style="width:50px" />
+                    Senior Software Engineer
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+              <div style="border-bottom:1px solid #e5e5e5;  margin-bottom:10px;"> </div>
+  <h3> Linear B&eacute;zier curve. </h3>
+<p>
+  The most basic B&eacute;zier curve is defined by two points in the plane or space.
+  In fact, it's not a curve, it consists of a straight line that goes from point P0 to point P1.
+</p>
+<p>
+  We could say that this curve is the line described by all the points that results from applying the following function:
+</p>
+<p>
+  <strong>P0 + (P1 - P0) * t</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; with t being all the numbers between 0 and 1.
+</p>
+<p>
+  ( this is the same that &nbsp;&nbsp; <strong>P0 + P1 * t - P0 * t</strong> &nbsp;&nbsp; or &nbsp;&nbsp; <strong>P0 * (1 - t) +  P1 * t</strong> &nbsp;&nbsp; )
+</p>
+<p>
+  If you want to draw it programming, just iterate over t and calculate and draw the points with the formula above.
+</p>
+<img src="../img/bezier-intro/Bezier_1_big.gif" style="margin-top:10px;margin-bottom:10px" />
+<h3> Quadratic B&eacute;zier curve. </h3>
+<p>
+  Now it gets more interesting.
+</p>
+<p>
+  This curve is defined by three points in the plane or space. Let's suppose P0, P1 and P2. Again we will have t in a range from 0 to 1.
+</p>
+<p>
+  We get two line segments, P0P1 and P1P2.
+  Let's take the "t" point for P0P1 segment, let's call it Q0 for the sake of example, and the "t" point for P1P2 segment, Q1. We have a new segment Q0Q1.
+</p>
+<p>
+  Let's calculate and draw the "t" point for it, as it is one of the points that belongs to the curve.
+</p>
+<p>
+  Let's repeat the operation for every "t" between 0 and 1.
+</p>
+<img src="../img/bezier-intro/Bezier_2_big.svg.png" style="margin-top:10px;margin-bottom:10px" />
+<img src="../img/bezier-intro/Bezier_2_big.gif" style="margin-top:10px;margin-bottom:10px" />
+<h3> Cubic B&eacute;zier curve. </h3>
+<p>
+  I guess we have already got Pierre B&eacute;zier's idea with quadratic curves.
+</p>
+<p>
+  In this case we have four points: P0, P1, P2, P3. So we have three line segments: P0P1, P1P2 and P2P3.
+</p>
+<p>
+  We'll get the "t" point for those segments: Q0, Q1 and Q2.
+</p>
+<p>
+  Now we have one extra step: we need to get the "t" point for Q0Q1 and Q1Q2 segments: R0 and R1.
+</p>
+<p>
+  Finally let's draw the "t" point for R0R1 and repeat the process for "t" between 0 and 1.
+</p>
+<img src="../img/bezier-intro/Bezier_3_big.svg.png" style="margin-top:10px;margin-bottom:10px" />
+<img src="../img/bezier-intro/Bezier_3_big.gif" style="margin-top:10px;margin-bottom:10px" />
+<h3> Higher degree B&eacute;zier curves. </h3>
+<p>
+  So far, we have build B&eacute;zier curves with degree one (linear), two (quadratic) and three (cubic).
+</p>
+<p>
+  But the same applied recursive method could be used with any degree curve.
+</p>
+<p>
+  Following animations show the construction of degree four and degree five curves:
+</p>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <footer class="footer" style="border-top:1px solid #e5e5e5; padding-top:19px; margin-top:10px; color:#777; font-size:14px">
+              <p>This web site is proudly powered by Hypertext Markup Language.</p>
+            </footer>
+            
+          </div>
+        </div>
+
+      </div> <!-- /container -->
+    </body>
+    </html>
+  

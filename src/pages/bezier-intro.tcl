@@ -1,3 +1,5 @@
+source bin/page.tcl
+
 st { Linear B&eacute;zier curve. }
 
 p {
@@ -21,7 +23,7 @@ p {
   If you want to draw it programming, just iterate over t and calculate and draw the points with the formula above.
 }
 
-img "Bezier_1_big.gif"
+img "../img/bezier-intro/Bezier_1_big.gif"
 
 st { Quadratic B&eacute;zier curve. }
 
@@ -46,8 +48,8 @@ p {
   Let's repeat the operation for every "t" between 0 and 1.
 }
 
-img "Bezier_2_big.svg.png"
-img "Bezier_2_big.gif"
+img "../img/bezier-intro/Bezier_2_big.svg.png"
+img "../img/bezier-intro/Bezier_2_big.gif"
 
 st { Cubic B&eacute;zier curve. }
 
@@ -71,8 +73,8 @@ p {
   Finally let's draw the "t" point for R0R1 and repeat the process for "t" between 0 and 1.
 }
 
-img "Bezier_3_big.svg.png"
-img "Bezier_3_big.gif"
+img "../img/bezier-intro/Bezier_3_big.svg.png"
+img "../img/bezier-intro/Bezier_3_big.gif"
 
 st { Higher degree B&eacute;zier curves. }
 
@@ -88,3 +90,4 @@ p {
   Following animations show the construction of degree four and degree five curves:
 }
 
+end pages/bezier-intro.html
