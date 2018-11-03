@@ -48,7 +48,8 @@ proc head {} {
         </div>
         <div class="row">
           <div class="col-md-12">
-              <div style="border-bottom:1px solid #e5e5e5;  margin-bottom:10px;"> </div>
+            <div style="border-bottom:1px solid #e5e5e5;  margin-bottom:10px;"> </div>
+            <div><a href="../index.html"><span class="glyphicon glyphicon-home"></span> &nbsp;Back to Index</a></div>
   }
 }
 
