@@ -49,7 +49,7 @@ proc head {} {
         <div class="row">
           <div class="col-md-12">
             <div style="border-bottom:1px solid #e5e5e5;  margin-bottom:10px;"> </div>
-            <div><a href="../index.html"><span class="glyphicon glyphicon-home"></span> &nbsp;Back to Index</a></div>
+            <div><a href="../index.html"><span class="glyphicon glyphicon-home"></span> &nbsp;Back to index</a></div>
   }
 }
 
@@ -71,6 +71,10 @@ proc foot {} {
   }
 }
 
+proc t {txt} {
+  append ::buffer <h2> $txt </h2> \n
+}
+
 proc st {txt} {
   append ::buffer <h3> $txt </h3> \n
 }
@@ -81,6 +85,10 @@ proc p {txt} {
 
 proc img {filename} {
   append ::buffer "<img src=\"$filename\" style=\"margin-top:10px;margin-bottom:10px\" />" \n
+}
+
+proc ol {inner} {
+  append ::buffer <ol> $inner </ol> \n
 }
 
 proc end {filename} {

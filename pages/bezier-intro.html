@@ -46,7 +46,16 @@
           <div class="col-md-12">
             <div style="border-bottom:1px solid #e5e5e5;  margin-bottom:10px;"> </div>
             <div><a href="../index.html"><span class="glyphicon glyphicon-home"></span> &nbsp;Back to index</a></div>
-  <h3> Linear B&eacute;zier curve. </h3>
+  <h2> B&eacute;zier curves intro </h2>
+<p>
+  In computer graphics, B&eacute;zier curves are defined by N points in the plane or space and built using a
+  recursive method.
+</p>
+<p>
+  I don't focus here in how to implement an optimum algorithm for drawing B&eacute;zier curves, but just the
+  logic behind their construction.
+</p>
+<h3> Linear B&eacute;zier curves </h3>
 <p>
   The most basic B&eacute;zier curve is defined by two points in the plane or space.
   In fact, it's not a curve, it consists of a straight line that goes from point P0 to point P1.
@@ -64,7 +73,7 @@
   If you want to draw it programming, just iterate over t and calculate and draw the points with the formula above.
 </p>
 <img src="../img/bezier-intro/Bezier_1_big.gif" style="margin-top:10px;margin-bottom:10px" />
-<h3> Quadratic B&eacute;zier curve. </h3>
+<h3> Quadratic B&eacute;zier curves </h3>
 <p>
   Now it gets more interesting.
 </p>
@@ -83,9 +92,9 @@
 </p>
 <img src="../img/bezier-intro/Bezier_2_big.svg.png" style="margin-top:10px;margin-bottom:10px" />
 <img src="../img/bezier-intro/Bezier_2_big.gif" style="margin-top:10px;margin-bottom:10px" />
-<h3> Cubic B&eacute;zier curve. </h3>
+<h3> Cubic B&eacute;zier curves </h3>
 <p>
-  I guess we have already got Pierre B&eacute;zier's idea with quadratic curves.
+  I guess we have already got <a href="https://en.wikipedia.org/wiki/Pierre_Bézier">Pierre B&eacute;zier</a>'s idea with quadratic curves.
 </p>
 <p>
   In this case we have four points: P0, P1, P2, P3. So we have three line segments: P0P1, P1P2 and P2P3.
@@ -101,16 +110,31 @@
 </p>
 <img src="../img/bezier-intro/Bezier_3_big.svg.png" style="margin-top:10px;margin-bottom:10px" />
 <img src="../img/bezier-intro/Bezier_3_big.gif" style="margin-top:10px;margin-bottom:10px" />
-<h3> Higher degree B&eacute;zier curves. </h3>
+<h3> Higher degree B&eacute;zier curves </h3>
 <p>
-  So far, we have build B&eacute;zier curves with degree one (linear), two (quadratic) and three (cubic).
+  So far, we have built B&eacute;zier curves with degree one (linear), two (quadratic) and three (cubic).
 </p>
 <p>
   But the same applied recursive method could be used with any degree curve.
 </p>
 <p>
-  Following animations show the construction of degree four and degree five curves:
+  Following animations show the construction of degree four and five curves:
 </p>
+<img src="../img/bezier-intro/Bezier_4_big.gif" style="margin-top:10px;margin-bottom:10px" />
+<img src="../img/bezier-intro/Bezier_5_big.gif" style="margin-top:10px;margin-bottom:10px" />
+<h3> Links </h3>
+<ol>
+  <li>
+    <a href="http://www.mat.unimi.it/users/alzati/Geometria_Computazionale_98-99/apps/bezspli2/teoria.html">
+      B&eacute;zier vs Spline - Progetto di Geometria Computazionale di Mauro Gentile (italian text)
+    </a>
+  </li>
+  <li>
+    <a href="https://en.wikipedia.org/wiki/Bézier_curve">
+      Wikipedia - B&eacute;zier curve
+    </a>
+  </li>
+</ol>
 
         </div>
         <div class="row">

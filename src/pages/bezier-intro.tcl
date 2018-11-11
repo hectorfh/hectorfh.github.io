@@ -1,6 +1,18 @@
 source bin/page.tcl
 
-st { Linear B&eacute;zier curve. }
+t { B&eacute;zier curves intro }
+
+p {
+  In computer graphics, B&eacute;zier curves are defined by N points in the plane or space and built using a
+  recursive method.
+}
+
+p {
+  I don't focus here in how to implement an optimum algorithm for drawing B&eacute;zier curves, but just the
+  logic behind their construction.
+}
+
+st { Linear B&eacute;zier curves }
 
 p {
   The most basic B&eacute;zier curve is defined by two points in the plane or space.
@@ -25,7 +37,7 @@ p {
 
 img "../img/bezier-intro/Bezier_1_big.gif"
 
-st { Quadratic B&eacute;zier curve. }
+st { Quadratic B&eacute;zier curves }
 
 p {
   Now it gets more interesting.
@@ -51,10 +63,10 @@ p {
 img "../img/bezier-intro/Bezier_2_big.svg.png"
 img "../img/bezier-intro/Bezier_2_big.gif"
 
-st { Cubic B&eacute;zier curve. }
+st { Cubic B&eacute;zier curves }
 
 p {
-  I guess we have already got Pierre B&eacute;zier's idea with quadratic curves.
+  I guess we have already got <a href="https://en.wikipedia.org/wiki/Pierre_Bézier">Pierre B&eacute;zier</a>'s idea with quadratic curves.
 }
 
 p {
@@ -76,10 +88,10 @@ p {
 img "../img/bezier-intro/Bezier_3_big.svg.png"
 img "../img/bezier-intro/Bezier_3_big.gif"
 
-st { Higher degree B&eacute;zier curves. }
+st { Higher degree B&eacute;zier curves }
 
 p {
-  So far, we have build B&eacute;zier curves with degree one (linear), two (quadratic) and three (cubic).
+  So far, we have built B&eacute;zier curves with degree one (linear), two (quadratic) and three (cubic).
 }
 
 p {
@@ -87,7 +99,25 @@ p {
 }
 
 p {
-  Following animations show the construction of degree four and degree five curves:
+  Following animations show the construction of degree four and five curves:
+}
+
+img "../img/bezier-intro/Bezier_4_big.gif"
+img "../img/bezier-intro/Bezier_5_big.gif"
+
+st { Links }
+
+ol {
+  <li>
+    <a href="http://www.mat.unimi.it/users/alzati/Geometria_Computazionale_98-99/apps/bezspli2/teoria.html">
+      B&eacute;zier vs Spline - Progetto di Geometria Computazionale di Mauro Gentile (italian text)
+    </a>
+  </li>
+  <li>
+    <a href="https://en.wikipedia.org/wiki/Bézier_curve">
+      Wikipedia - B&eacute;zier curve
+    </a>
+  </li>
 }
 
 end pages/bezier-intro.html
