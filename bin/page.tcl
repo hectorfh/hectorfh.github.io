@@ -84,7 +84,7 @@ proc p {txt} {
 }
 
 proc img {filename} {
-  append ::buffer "<img src=\"$filename\" style=\"margin-top:10px;margin-bottom:10px\" />" \n
+  append ::buffer "<img src=\"$filename\" style=\"margin-top:10px;margin-bottom:10px;width:400px\" />" \n
 }
 
 proc ol {inner} {
