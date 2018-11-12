@@ -120,4 +120,8 @@ ol {
   </li>
 }
 
+p {
+  Written by H&eacute;ctor Hern&aacute;ndez. Images and animations were taken from Wikipedia.
+}
+
 end pages/bezier-intro.html
