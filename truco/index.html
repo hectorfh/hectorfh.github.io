@@ -59,7 +59,7 @@ main: function() {
 
   // draw human cards
   truco.mano.humanCards.forEach(function(card, i) {
-    truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 100);
+    truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 200);
   });
 
   // draw computer cards
@@ -101,7 +101,7 @@ drawCompCard: function(i) {
 
   // Get random card destination.
   const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
-  const y = 260 + Math.floor(Math.random() * 30);
+  const y = 360 + Math.floor(Math.random() * 30);
 
   $('<div></div>').appendTo('#gameDiv').
     attr('id', 'computerCardDiv_' + i).
@@ -310,7 +310,7 @@ playCard: function() {
 
   // Get random card destination.
   const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
-  const y = 210 + Math.floor(Math.random() * 30);
+  const y = 310 + Math.floor(Math.random() * 30);
 
   $(this).animate({ left: x, bottom: y }, 200, function() { truco.playCardAfterAnimation(); });
 
@@ -435,7 +435,7 @@ $(function() { truco.main(); });
 </head>
 <body style="background:black">
 <div id="gameDiv" style="color:#EEEEEE; font-family:commodore_64regular; font-size:140%; margin:auto">
-  <h1>Truco<span style="font-size:50%"> v0.1 <br /></span><span style="font-size:40%; margin-left:30px">by Tito</span></h1>
+  <h1>Tr<span style="font-size:105%">u</span><span style="font-size:110%">c</span><span style="font-size:100%">o</span><span style="font-size:80%"> v</span><span style="font-size:50%">0.1<br /></span><span style="font-size:40%; margin-left:30px">by Tito</span></h1>
   <div id="scoreOuterDiv"></div>
 </div>
 </body>
