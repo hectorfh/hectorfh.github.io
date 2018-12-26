@@ -43,7 +43,7 @@ main: function() {
   $('#gameDiv').
     css('position', 'relative').
     css('width', '300px').
-    //css('height', '400px').
+    css('height', '100vh').
     css('background-color', 'black');
 
   // shuffle cards array
@@ -59,7 +59,7 @@ main: function() {
 
   // draw human cards
   truco.mano.humanCards.forEach(function(card, i) {
-    truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 300);
+    truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 100);
   });
 
   // draw computer cards
@@ -71,7 +71,7 @@ main: function() {
 
   $('#gameDiv').on('click', '.humanCard', truco.playCard);
 
-  truco.drawMenu();
+  //truco.drawMenu();
 
   truco.drawScore(0, 40);
 
@@ -101,7 +101,7 @@ drawCompCard: function(i) {
 
   // Get random card destination.
   const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
-  const y = 100 + Math.floor(Math.random() * 30);
+  const y = 260 + Math.floor(Math.random() * 30);
 
   $('<div></div>').appendTo('#gameDiv').
     attr('id', 'computerCardDiv_' + i).
@@ -114,7 +114,7 @@ drawCompCard: function(i) {
     css('height', truco.CARD_HEIGHT + 'px').
     css('background-size', '100%').
     css('left', x + 'px').
-    css('top', y + 'px').
+    css('bottom', y + 'px').
     css('z-index', truco.mano.playedCards.length);
 
   /*
@@ -310,9 +310,9 @@ playCard: function() {
 
   // Get random card destination.
   const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
-  const y = 150 + Math.floor(Math.random() * 30);
+  const y = 210 + Math.floor(Math.random() * 30);
 
-  $(this).animate({ left: x, top: y }, 200, function() { truco.playCardAfterAnimation(); });
+  $(this).animate({ left: x, bottom: y }, 200, function() { truco.playCardAfterAnimation(); });
 
 },
 
@@ -342,7 +342,7 @@ drawCard: function(i, x, y) {
     css('background-size',
                   truco.CARD_WIDTH * 10 + 'px ' + truco.CARD_HEIGHT * 4 + 'px').
     css('left', x + 'px').
-    css('top', y + 'px').
+    css('bottom', y + 'px').
     css('background-position-x',
                       truco.mano.humanCards[i] % 10 * -truco.CARD_WIDTH + 'px').
     css('background-position-y',
@@ -437,9 +437,6 @@ $(function() { truco.main(); });
 <div id="gameDiv" style="color:#EEEEEE; font-family:commodore_64regular; font-size:140%; margin:auto">
   <h1>Truco<span style="font-size:50%"> v0.1 <br /></span><span style="font-size:40%; margin-left:30px">by Tito</span></h1>
   <div id="scoreOuterDiv"></div>
-  <div id="bottomDiv" style="bottom:0px; background:red; height:200px;">
-  </div>
-  
 </div>
 </body>
 </html>
