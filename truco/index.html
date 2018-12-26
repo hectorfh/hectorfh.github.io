@@ -231,22 +231,22 @@ drawScore: function(left, top, humanPoints, computerPoints) {
   $('#scoreDiv').remove();
 
   $('<div></div>').appendTo('#scoreOuterDiv').attr('id',               'scoreDiv').
-                                         css('position',         'relative').
+                                         css('position',         'absolute').
                                          //css('background-color', 'green').
-                                         //css('left',             left + 'px').
+                                         css('right',             '10px').
                                          //css('top',              top + 'px').
-                                         css('width',            '250px').
+                                         css('width',            '200px').
                                          css('height',           '220px');
 
   // split line
   drawDiv(105, 0, 5, 100, truco.TEXT_COLOR);
 
   // H
-  drawDiv(40, 0, 30, 30, 'default').css('font-size', '1.3em').
+  drawDiv(40, 0, 30, 30, 'default').css('font-size', '1em').
                                             html('H');
 
   // C
-  drawDiv(140, 0, 30, 30, 'default').css('font-size', '1.3em').
+  drawDiv(140, 0, 30, 30, 'default').css('font-size', '1em').
                                             html('C');
 
   drawX(0, 0, 18);  
