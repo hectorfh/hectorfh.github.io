@@ -3,6 +3,18 @@
 <head>
 <meta name="viewport" content="width=device-width; initial-scale=1.0" />
 <link rel="stylesheet" href="commodore-64-v621c-webfont.css" />
+<style>
+  /* The animation code */
+  @keyframes open-animation {
+    from {width: 0%; height: 0px}
+    to {width: 100%; height: 330px}
+  }
+
+  @keyframes close-animation {
+    from {width: 100%; height: 330px}
+    to {width: 0%; height: 0px}
+  }
+</style>
 <script src="jquery-1.9.0.min.js"></script>
 <script>
 
@@ -282,7 +294,10 @@ drawMenu: function() {
     css('font-size', '1em').
     css('color', 'white').
     css('border', '2px solid white').
-    css('width', '300px').
+    css('width', '100%').
+    css('height', '330px').
+    css('animation-name', 'open-animation').
+    css('animation-duration', '500ms').
     css('background-color', 'black');
 
   $('<div></div>').appendTo('#menu').
@@ -316,12 +331,18 @@ drawMenuOption: function(code, text, func) {
                     css('color', 'black');
           });*/
 
-  $('#menu').animate({ height: '330px'}, 500);
+  //$('#menu').animate({ height: '330px'}, 500);
 },
 
 closeMenu: function() {
-  console.info('bla bla bla');
-  $('#menu').remove();
+  //
+  
+  $('#menu').css('width', '0%').
+             css('height', '0px').
+             css('animation', 'close-animation').
+             css('animation-duration', '500ms');
+
+  setTimeout(function() { $('#menu').remove() }, 500);
 },
 
 playCard: function() {
