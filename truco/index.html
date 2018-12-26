@@ -11,9 +11,6 @@ const truco = {
 CARD_WIDTH: 90,
 CARD_HEIGHT: 90,
 
-COMP_CARD_WIDTH: 60,
-COMP_CARD_HEIGHT: 60,
-
 BACKGROUND_COLOR: 'black',
 TEXT_COLOR: '#EEEEEE',
 
@@ -45,8 +42,8 @@ main: function() {
   // create game div
   $('#gameDiv').
     css('position', 'relative').
-    css('width', '370px').
-    css('height', '600px').
+    css('width', '300px').
+    css('height', '400px').
     css('background-color', 'black');
 
   // shuffle cards array
@@ -62,7 +59,7 @@ main: function() {
 
   // draw human cards
   truco.mano.humanCards.forEach(function(card, i) {
-    truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 450);
+    truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 300);
   });
 
   // draw computer cards
@@ -103,8 +100,8 @@ moveCompCard: function(i) {
 drawCompCard: function(i) {
 
   // Get random card destination.
-  const x = 30 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
-  const y = 240 + Math.floor(Math.random() * 30);
+  const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
+  const y = 100 + Math.floor(Math.random() * 30);
 
   $('<div></div>').appendTo('#gameDiv').
     attr('id', 'computerCardDiv_' + i).
@@ -172,7 +169,7 @@ getNextCompCard: function() {
  */
 drawScore: function(left, top, humanPoints, computerPoints) {
 
-  const PENCIL_WIDTH = 5;
+  const PENCIL_WIDTH = 3;
   const PENCIL_LONG = 40;
   const INTRA_HORIZONTAL_MARGIN = 2;
   const INTRA_VERTICAL_MARGIN = 2;
@@ -233,23 +230,23 @@ drawScore: function(left, top, humanPoints, computerPoints) {
   // remove score div if exists.
   $('#scoreDiv').remove();
 
-  $('<div></div>').appendTo('#gameDiv').attr('id',               'scoreDiv').
-                                         css('position',         'absolute').
+  $('<div></div>').appendTo('#scoreOuterDiv').attr('id',               'scoreDiv').
+                                         css('position',         'relative').
                                          //css('background-color', 'green').
-                                         css('left',             left + 'px').
-                                         css('top',              top + 'px').
+                                         //css('left',             left + 'px').
+                                         //css('top',              top + 'px').
                                          css('width',            '250px').
                                          css('height',           '220px');
 
   // split line
-  drawDiv(115, 0, 10, 220, truco.TEXT_COLOR);
+  drawDiv(115, 0, 5, 220, truco.TEXT_COLOR);
 
   // H
-  drawDiv(40, top + 10, 30, 30, 'default').css('font-size', '2em').
+  drawDiv(40, 0, 30, 30, 'default').css('font-size', '1.3em').
                                             html('H');
 
   // C
-  drawDiv(170, top + 10, 30, 30, 'default').css('font-size', '2em').
+  drawDiv(170, 0, 30, 30, 'default').css('font-size', '1.3em').
                                             html('C');
 
   drawX(0, 0, 18);  
@@ -312,8 +309,8 @@ playCard: function() {
   truco.disableHumanCards();
 
   // Get random card destination.
-  const x = 30 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
-  const y = 240 + Math.floor(Math.random() * 30);
+  const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
+  const y = 150 + Math.floor(Math.random() * 30);
 
   $(this).animate({ left: x, top: y }, 200, function() { truco.playCardAfterAnimation(); });
 
@@ -438,8 +435,9 @@ $(function() { truco.main(); });
 </head>
 <body style="background:black">
 <div id="gameDiv" style="color:#EEEEEE; font-family:commodore_64regular; font-size:140%; margin:auto">
-  <h1>Truco v0.1</h1>
-  by Tito
+  <h1>Truco<span style="font-size:50%"> v0.1 <br /></span><span style="font-size:40%; margin-left:30px">by Tito</span></h1>
+  <div id="scoreOuterDiv"></div>
+  
 </div>
 </body>
 </html>
