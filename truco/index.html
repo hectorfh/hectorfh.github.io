@@ -59,7 +59,7 @@ main: function() {
 
   // draw human cards
   truco.mano.humanCards.forEach(function(card, i) {
-    //truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 200);
+    truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 200);
   });
 
   // draw computer cards
@@ -71,9 +71,11 @@ main: function() {
 
   $('#gameDiv').on('click', '.humanCard', truco.playCard);
 
-  truco.drawMenu();
+  //truco.drawMenu();
 
   truco.drawScore(0, 40);
+
+  truco.drawCantar();
 
   
 
@@ -254,6 +256,21 @@ drawScore: function(left, top, humanPoints, computerPoints) {
 
 },
 
+drawCantar: function() {
+  $('<div>Cantar</div>').appendTo('#gameDiv').
+    attr('id', 'cantar').
+    css('cursor', 'pointer').
+    css('position', 'absolute').
+    //css('left', '0px').
+    css('padding', '20px 10px').
+    css('bottom', '130px').
+    css('color', 'white').
+    css('border', '2px solid white').
+    css('background-color', 'black').
+    click(function() { truco.drawMenu(); });
+
+},
+
 drawMenu: function() {
 
   $('<div></div>').appendTo('#gameDiv').
@@ -261,33 +278,50 @@ drawMenu: function() {
     css('position', 'absolute').
     css('left', '0px').
     css('bottom', '130px').
+    css('overflow', 'hidden').
+    css('font-size', '1em').
+    css('color', 'white').
+    css('border', '2px solid white').
     css('width', '300px').
-    css('font-size', '2em').
-    css('color', 'black').
-    css('background-color', '#EEEEEE');
+    css('background-color', 'black');
 
-  truco.drawMenuOption('C.Flor. al Resto');
-  truco.drawMenuOption('Me voy');
-  truco.drawMenuOption('Quiero');
-  truco.drawMenuOption('No quiero');
-  truco.drawMenuOption('Falta envido');
-  truco.drawMenuOption('<---');
+  $('<div></div>').appendTo('#menu').
+    css('position', 'relative').
+    css('height', '30px');
+
+  truco.drawMenuOption('FLOR', '-> C.Flor.Resto', function() {});
+  truco.drawMenuOption('ME_VOY', '-> Me voy', function() {});
+  truco.drawMenuOption('QUIERO', '-> Quiero', function() {});
+  truco.drawMenuOption('NO_QUIERO', '-> No quiero', function() {});
+  truco.drawMenuOption('FALTA_ENVIDO', '-> Falta envido', function() {});
+  truco.drawMenuOption('BACK', '<-', truco.closeMenu);
 
 },
 
-drawMenuOption: function(text) {
+drawMenuOption: function(code, text, func) {
 
   $('<div>' + text + '</div>').appendTo('#menu').
+    attr('class', 'menu-option').
     css('cursor', 'pointer').
-    css('padding', '2px 0 2px 15px').
-    hover(function() {
+    css('position', 'relative').
+    //css('width', '100%').
+    css('height', '50px').
+    css('padding-left', '10px').
+    click(func);
+    /*hover(function() {
             $(this).css('background-color', 'black').
                     css('color', '#EEEEEE');
           }, function(){
             $(this).css('background-color', '#EEEEEE').
                     css('color', 'black');
-          });
+          });*/
 
+  $('#menu').animate({ height: '330px'}, 500);
+},
+
+closeMenu: function() {
+  console.info('bla bla bla');
+  $('#menu').remove();
 },
 
 playCard: function() {
