@@ -43,7 +43,7 @@ main: function() {
   $('#gameDiv').
     css('position', 'relative').
     css('width', '300px').
-    css('height', '400px').
+    //css('height', '400px').
     css('background-color', 'black');
 
   // shuffle cards array
@@ -71,7 +71,7 @@ main: function() {
 
   $('#gameDiv').on('click', '.humanCard', truco.playCard);
 
-  //truco.drawMenu();
+  truco.drawMenu();
 
   truco.drawScore(0, 40);
 
@@ -170,9 +170,9 @@ getNextCompCard: function() {
 drawScore: function(left, top, humanPoints, computerPoints) {
 
   const PENCIL_WIDTH = 3;
-  const PENCIL_LONG = 40;
-  const INTRA_HORIZONTAL_MARGIN = 2;
-  const INTRA_VERTICAL_MARGIN = 2;
+  const PENCIL_LONG = 20;
+  const INTRA_HORIZONTAL_MARGIN = 1;
+  const INTRA_VERTICAL_MARGIN = 1;
 
   /**
    * Draw score square.
@@ -198,7 +198,7 @@ drawScore: function(left, top, humanPoints, computerPoints) {
     }
 
     if (points > 4) {
-        for (var i = 0; i < 31; i += 3) {
+        for (var i = 0; i < 16; i += 3) {
           drawDiv(left + i, top + i, PENCIL_WIDTH, PENCIL_WIDTH, COLOR);
         }
     }
@@ -223,7 +223,7 @@ drawScore: function(left, top, humanPoints, computerPoints) {
       const col = Math.floor(i / SQUARES_PER_COL);
       const pointsInSquare = (i == Math.floor(points / POINTS_PER_SQUARE) ? points % POINTS_PER_SQUARE
                                                                           : POINTS_PER_SQUARE);
-      drawSquare(left + 10 + 60 * col, top + 60 + 50 * row, pointsInSquare);
+      drawSquare(left + 30 + 30 * col, top + 30 + 25 * row, pointsInSquare);
     }
   }
 
@@ -239,14 +239,14 @@ drawScore: function(left, top, humanPoints, computerPoints) {
                                          css('height',           '220px');
 
   // split line
-  drawDiv(115, 0, 5, 220, truco.TEXT_COLOR);
+  drawDiv(105, 0, 5, 100, truco.TEXT_COLOR);
 
   // H
   drawDiv(40, 0, 30, 30, 'default').css('font-size', '1.3em').
                                             html('H');
 
   // C
-  drawDiv(170, 0, 30, 30, 'default').css('font-size', '1.3em').
+  drawDiv(140, 0, 30, 30, 'default').css('font-size', '1.3em').
                                             html('C');
 
   drawX(0, 0, 18);  
@@ -259,11 +259,11 @@ drawMenu: function() {
   $('<div></div>').appendTo('#gameDiv').
     attr('id', 'menu').
     css('position', 'absolute').
-    css('left', '400px').
+    css('left', '0px').
     css('bottom', '30px').
-    css('width', '400px');
+    css('width', '300px');
 
-  truco.drawMenuOption('Contra flor al resto');
+  truco.drawMenuOption('C.Flor.AlR.');
   truco.drawMenuOption('Me voy');
   truco.drawMenuOption('Quiero');
   truco.drawMenuOption('No quiero');
@@ -437,6 +437,8 @@ $(function() { truco.main(); });
 <div id="gameDiv" style="color:#EEEEEE; font-family:commodore_64regular; font-size:140%; margin:auto">
   <h1>Truco<span style="font-size:50%"> v0.1 <br /></span><span style="font-size:40%; margin-left:30px">by Tito</span></h1>
   <div id="scoreOuterDiv"></div>
+  <div id="bottomDiv" style="bottom:0px; background:red; height:200px;">
+  </div>
   
 </div>
 </body>
