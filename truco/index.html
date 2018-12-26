@@ -59,7 +59,7 @@ main: function() {
 
   // draw human cards
   truco.mano.humanCards.forEach(function(card, i) {
-    truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 200);
+    //truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 200);
   });
 
   // draw computer cards
@@ -71,7 +71,7 @@ main: function() {
 
   $('#gameDiv').on('click', '.humanCard', truco.playCard);
 
-  //truco.drawMenu();
+  truco.drawMenu();
 
   truco.drawScore(0, 40);
 
@@ -260,8 +260,10 @@ drawMenu: function() {
     attr('id', 'menu').
     css('position', 'absolute').
     css('left', '0px').
-    css('bottom', '30px').
-    css('width', '300px');
+    css('bottom', '100px').
+    css('width', '300px').
+    css('color', 'black').
+    css('background-color', '#EEEEEE');
 
   truco.drawMenuOption('C.Flor.AlR.');
   truco.drawMenuOption('Me voy');
@@ -277,11 +279,11 @@ drawMenuOption: function(text) {
     css('cursor', 'pointer').
     css('padding', '2px 0 2px 15px').
     hover(function() {
-            $(this).css('background-color', '#EEEEEE').
-                    css('color', 'black');
-          }, function(){
             $(this).css('background-color', 'black').
                     css('color', '#EEEEEE');
+          }, function(){
+            $(this).css('background-color', '#EEEEEE').
+                    css('color', 'black');
           });
 
 },
