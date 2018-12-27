@@ -5,14 +5,14 @@
 <link rel="stylesheet" href="commodore-64-v621c-webfont.css" />
 <style>
   /* The animation code */
-  @keyframes open-animation {
-    from {width: 0%; height: 0px}
-    to {width: 100%; height: 330px}
+  @keyframes open-menu-animation {
+    from {max-width: 0px; max-height: 0px}
+    to {max-width: 300px; max-height: 300px}
   }
 
-  @keyframes close-animation {
-    from {width: 100%; height: 330px}
-    to {width: 0%; height: 0px}
+  @keyframes close-menu-animation {
+    from {max-width: 300px; max-height: 300px}
+    to {max-width: 0px; max-height: 0px}
   }
 
   #cardsContainer {
@@ -47,21 +47,9 @@
     top: 140px;
     transition: all 200ms ease-in-out;
     cursor: pointer;
-    
-    /*
-        css('background-size',
-                  truco.CARD_WIDTH * 10 + 'px ' + truco.CARD_HEIGHT * 4 + 'px').
-    css('left', x + 'px').
-    css('bottom', '0px').
-    css('background-position-x',
-                      truco.mano.humanCards[i] % 10 * -truco.CARD_WIDTH + 'px').
-    css('background-position-y',
-          Math.floor(truco.mano.humanCards[i] / 10) * truco.CARD_HEIGHT + 'px').
-    css('transition', 'all 200ms ease-in-out');
-*/
   }
 
-  #cantarButton {
+  #menuContainer {
     position: absolute;
     width: 43px;
     height: 13px;
@@ -71,9 +59,90 @@
     border-radius: 7px;
     font-size:9px;
     padding:27px 8px;
+    cursor: pointer;
   }
+
+  #menu {
+      /*$('<div></div>').appendTo('#gameDiv').
+    attr('id', 'menu').
+    css('position', 'absolute').
+    css('left', '0px').
+    css('bottom', '130px').
+    css('overflow', 'hidden').
+    css('font-size', '1em').
+    css('color', 'white').
+    css('border', '2px solid white').
+    css('width', '100%').
+    css('height', '330px').
+    css('animation-name', 'open-animation').
+    css('animation-duration', '500ms').
+    css('background-color', 'black');
+
+  $('<div></div>').appendTo('#menu').
+    css('position', 'relative').
+    css('height', '30px');*/
+
+    position: absolute;
+    overflow:hidden;
+    right: -1px;
+    bottom: -1px;
+    width: 300px;
+    max-width: 0px;
+    z-index: 1000;
+    background-color: black;
+  }
+
+  .menuOption {
+    overflow:hidden;
+    padding:15px 0;
+  }
+
+  #openMenu {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+  }
+
+  #closeMenu {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding:8px;
+    font-size:20px;
+  }
+
 </style>
 <script src="jquery-1.9.0.min.js"></script>
+</head>
+<body style="background:black">
+<div id="gameDiv" style="color:#EEEEEE; font-family:commodore_64regular; font-size:140%; margin:auto">
+  <div>
+    Tr<span style="font-size:105%">u</span><span style="font-size:110%">c</span><span style="font-size:100%">o</span><span style="font-size:50%"> v0.1</span>
+  </div>
+  <div> <span style="font-size:70%; margin-left:30px">by Tito</span></div>
+  <div id="scoreContainer"></div>
+  <div id="cardsContainer">
+    <div id="compCard_0" class="compCard"></div>
+    <div id="compCard_1" class="compCard"></div>
+    <div id="compCard_2" class="compCard"></div>
+
+    <div id="card_0" class="card" onclick="truco.playCard(0)"></div>
+    <div id="card_1" class="card" onclick="truco.playCard(1)"></div>
+    <div id="card_2" class="card" onclick="truco.playCard(2)"></div>
+  </div>
+  <div id="menuContainer">
+    <div id="openMenu" onclick="truco.showMenu()">Cantar</div>
+    <div id="menu">
+      <div class="menuOption">&gt; Opcion 2</div>
+      <div class="menuOption">&gt; Opcion 3</div>
+      <div class="menuOption">&gt; Opcion 4</div>
+      <div class="menuOption">&gt; Opcion 5</div>
+      <div id="closeMenu" onclick="truco.closeMenu()">X</div>
+    </div>
+  </div>
+</div>
 <script>
 
 const truco = {
@@ -175,7 +244,7 @@ drawCompCard: function(i) {
   const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 20);
   const y = 20 + Math.floor(Math.random() * 10);
 
-  cardDiv = document.getElementById('compCard_' + i);
+  const cardDiv = document.getElementById('compCard_' + i);
   cardDiv.style.left = x + 'px';
   cardDiv.style.top = y + 'px';
   cardDiv.style.zIndex = truco.mano.playedCards.length;
@@ -187,7 +256,7 @@ drawCompCard: function(i) {
 
 showCompCard: function(i) {
 
-  cardDiv = document.getElementById('compCard_' + i);
+  const cardDiv = document.getElementById('compCard_' + i);
   cardDiv.style.backgroundImage = "url('naipes.png')";
   cardDiv.style.backgroundSize = truco.CARD_WIDTH * 10 + 'px ' + truco.CARD_HEIGHT * 4 + 'px';
   cardDiv.style.backgroundPositionX = (truco.mano.computerCards[i] % 10 * -truco.CARD_WIDTH) + 'px';
@@ -304,33 +373,22 @@ drawScore: function(left, top, humanPoints, computerPoints) {
 
 },
 
-drawMenu: function() {
+showMenu: function() {
 
-  $('<div></div>').appendTo('#gameDiv').
-    attr('id', 'menu').
-    css('position', 'absolute').
-    css('left', '0px').
-    css('bottom', '130px').
-    css('overflow', 'hidden').
-    css('font-size', '1em').
-    css('color', 'white').
-    css('border', '2px solid white').
-    css('width', '100%').
-    css('height', '330px').
-    css('animation-name', 'open-animation').
-    css('animation-duration', '500ms').
-    css('background-color', 'black');
+  console.info('showMenu');
+  const menuElem = document.getElementById('menu');
 
-  $('<div></div>').appendTo('#menu').
-    css('position', 'relative').
-    css('height', '30px');
+  menuElem.style.maxWidth = '300px';
+  menuElem.style.maxHeight = '300px';
+  menuElem.style.animation = 'open-menu-animation';
+  menuElem.style.animationDuration = '500ms';
 
-  truco.drawMenuOption('FLOR', '-> C.Flor.Resto', function() {});
+  /*truco.drawMenuOption('FLOR', '-> C.Flor.Resto', function() {});
   truco.drawMenuOption('ME_VOY', '-> Me voy', function() {});
   truco.drawMenuOption('QUIERO', '-> Quiero', function() {});
   truco.drawMenuOption('NO_QUIERO', '-> No quiero', function() {});
   truco.drawMenuOption('FALTA_ENVIDO', '-> Falta envido', function() {});
-  truco.drawMenuOption('BACK', '<-', truco.closeMenu);
+  truco.drawMenuOption('BACK', '<-', truco.closeMenu);*/
 
 },
 
@@ -357,13 +415,19 @@ drawMenuOption: function(code, text, func) {
 
 closeMenu: function() {
   //
+  const menuElem = document.getElementById('menu');
   
-  $('#menu').css('width', '0%').
+  menuElem.style.maxWidth = 0;
+  menuElem.style.maxHeight = 0;
+  menuElem.style.animation = 'close-menu-animation';
+  menuElem.style.animationDuration = '500ms';
+  
+  /*$('#menu').css('width', '0%').
              css('height', '0px').
              css('animation', 'close-animation').
-             css('animation-duration', '500ms');
+             css('animation-duration', '500ms');*/
 
-  setTimeout(function() { $('#menu').remove() }, 500);
+  //ssetTimeout(function() { menuElem.style.show = 'none'; }, 500);
 },
 
 playCard: function(i) {
@@ -434,14 +498,14 @@ drawCard: function(i, x, y) {
 
 enableHumanCards: function() {
 
-  $('.humanCard').css('cursor', 'pointer');
+  //$('.humanCard').css('cursor', 'pointer');
   truco.cardsEnabled = true;
 
 },
 
 disableHumanCards: function() {
 
-  $('.humanCard').css('cursor', 'default');
+  //$('.humanCard').css('cursor', 'default');
   truco.cardsEnabled = false;
 
 },
@@ -511,27 +575,8 @@ getRandomInt: function(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }};
 
-$(function() { truco.main(); });
+truco.main();
 
 </script>
-</head>
-<body style="background:black">
-<div id="gameDiv" style="color:#EEEEEE; font-family:commodore_64regular; font-size:140%; margin:auto">
-  <div>
-    Tr<span style="font-size:105%">u</span><span style="font-size:110%">c</span><span style="font-size:100%">o</span><span style="font-size:50%"> v0.1</span>
-  </div>
-  <div> <span style="font-size:70%; margin-left:30px">by Tito</span></div>
-  <div id="scoreContainer"></div>
-  <div id="cardsContainer">
-    <div id="compCard_0" class="compCard"></div>
-    <div id="compCard_1" class="compCard"></div>
-    <div id="compCard_2" class="compCard"></div>
-
-    <div id="card_0" class="card" onclick="truco.playCard(0)"></div>
-    <div id="card_1" class="card" onclick="truco.playCard(1)"></div>
-    <div id="card_2" class="card" onclick="truco.playCard(2)"></div>
-  </div>
-  <div id="cantarButton">Cantar</div>
-</div>
 </body>
 </html>
