@@ -14,14 +14,49 @@
     from {width: 100%; height: 330px}
     to {width: 0%; height: 0px}
   }
+
+  #cardsContainer {
+    position:absolute;
+    width:300px;
+    height:110px;
+    left:5px;
+    top:70px;
+  }
+
+  #scoreContainer {
+    position:absolute;
+    left:120px;
+    top:10px;
+  }
+
+  .compCard {
+    position: absolute;
+    background-image: url('atras.png');
+    background-size: 100%;
+    width: 60px;
+    height: 60px;
+    display: none;
+  }
+
+  #cantarButton {
+    position: absolute;
+    width: 43px;
+    height: 13px;
+    left: 200px;
+    top: 121px;
+    border: 1px solid white;
+    border-radius: 7px;
+    font-size:9px;
+    padding:22px 6px;
+  }
 </style>
 <script src="jquery-1.9.0.min.js"></script>
 <script>
 
 const truco = {
 
-CARD_WIDTH: 90,
-CARD_HEIGHT: 90,
+CARD_WIDTH: 60,
+CARD_HEIGHT: 60,
 
 BACKGROUND_COLOR: 'black',
 TEXT_COLOR: '#EEEEEE',
@@ -75,9 +110,9 @@ main: function() {
   });
 
   // draw computer cards
-  /*truco.mano.computerCards.forEach(function(card, i) {
-    truco.drawComputerCard(i, 1 + i * (truco.COMP_CARD_WIDTH + 4), 10);
-  });*/
+  truco.mano.computerCards.forEach(function(card, i) {
+    //truco.drawCompCard(i, 1 + i * (truco.COMP_CARD_WIDTH + 4), 10);
+  });
 
   console.info(this.mano);
 
@@ -87,7 +122,7 @@ main: function() {
 
   truco.drawScore(0, 40);
 
-  truco.drawCantar();
+  //truco.drawCantar();
 
   
 
@@ -108,54 +143,32 @@ main: function() {
 },
 
 moveCompCard: function(i) {
-  setTimeout(function() { truco.drawCompCard(i) }, 500);
+  truco.drawCompCard(i);
 },
 
 drawCompCard: function(i) {
 
   // Get random card destination.
   const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
-  const y = 360 + Math.floor(Math.random() * 30);
+  const y = 80 + Math.floor(Math.random() * 30);
 
-  $('<div></div>').appendTo('#gameDiv').
-    attr('id', 'computerCardDiv_' + i).
-    addClass('computerCard').
-    data('i', i).
-    css('background-image', "url('atras.png')").
-    //css('background-size', "url('atras.png')").
-    css('position', 'absolute').
-    css('width', truco.CARD_WIDTH + 'px').
-    css('height', truco.CARD_HEIGHT + 'px').
-    css('background-size', '100%').
-    css('left', x + 'px').
-    css('bottom', y + 'px').
-    css('z-index', truco.mano.playedCards.length);
-
-  /*
-  $('#computerCardDiv_' + i).animate({ left: x,
-                                       top: y,
-                                       width: truco.CARD_WIDTH,
-                                       height: truco.CARD_HEIGHT,
-                                       backgroundSize: '100%'
-                                     }, 2000, function() { truco.showCompCard(i) });
-                                     */
+  cardDiv = document.getElementById('compCard_' + i);
+  cardDiv.style.left = x + 'px';
+  cardDiv.style.top = y + 'px';
+  cardDiv.style.zIndex = truco.mano.playedCards.length;
+  cardDiv.style.display = 'block';
 
   setTimeout(function() { truco.showCompCard(i) }, 500);
 
 },
 
 showCompCard: function(i) {
-  
-  // Card image position.
-  const cardX = truco.mano.computerCards[i] % 10 * -truco.CARD_WIDTH;
-  const cardY = Math.floor(truco.mano.computerCards[i] / 10) * truco.CARD_HEIGHT;
 
-  $('#computerCardDiv_' + i).css({ backgroundImage: "url('naipes.png')",
-                                   backgroundSize: truco.CARD_WIDTH * 10 + 'px '
-                                                   + truco.CARD_HEIGHT * 4 + 'px',
-                                   backgroundPositionX: cardX,
-                                   backgroundPositionY: cardY
-                                 });
+  cardDiv = document.getElementById('compCard_' + i);
+  cardDiv.style.backgroundImage = "url('naipes.png')";
+  cardDiv.style.backgroundSize = truco.CARD_WIDTH * 10 + 'px ' + truco.CARD_HEIGHT * 4 + 'px';
+  cardDiv.style.backgroundPositionX = (truco.mano.computerCards[i] % 10 * -truco.CARD_WIDTH) + 'px';
+  cardDiv.style.backgroundPositionY = (Math.floor(truco.mano.computerCards[i] / 10) * truco.CARD_HEIGHT) + 'px';
 
   if (truco.nextPlayer() == truco.HUMAN) {
     truco.enableHumanCards();
@@ -244,27 +257,27 @@ drawScore: function(left, top, humanPoints, computerPoints) {
   // remove score div if exists.
   $('#scoreDiv').remove();
 
-  $('<div></div>').appendTo('#scoreOuterDiv').attr('id',               'scoreDiv').
-                                         css('position',         'absolute').
+  $('<div></div>').appendTo('#scoreContainer').attr('id',               'scoreDiv');
+                                               //css('position',         'absolute').
                                          //css('background-color', 'green').
-                                         css('right',             '10px').
+                                               //css('right',             '10px').
                                          //css('top',              top + 'px').
-                                         css('width',            '200px').
-                                         css('height',           '220px');
+                                               //css('width',            '200px').
+                                               //css('height',           '220px');
 
   // split line
-  drawDiv(105, 0, 5, 100, truco.TEXT_COLOR);
+  drawDiv(90, 0, 5, 100, truco.TEXT_COLOR);
 
   // H
   drawDiv(40, 0, 30, 30, 'default').css('font-size', '1em').
                                             html('H');
 
   // C
-  drawDiv(140, 0, 30, 30, 'default').css('font-size', '1em').
+  drawDiv(115, 0, 30, 30, 'default').css('font-size', '1em').
                                             html('C');
 
   drawX(0, 0, 18);  
-  drawX(100, 0, 22);
+  drawX(75, 0, 22);
 
 },
 
@@ -275,7 +288,7 @@ drawCantar: function() {
     css('position', 'absolute').
     //css('left', '0px').
     css('padding', '20px 10px').
-    css('bottom', '130px').
+    css('bottom', '125px').
     css('color', 'white').
     css('border', '2px solid white').
     css('background-color', 'black').
@@ -371,7 +384,15 @@ playCard: function() {
   const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
   const y = 310 + Math.floor(Math.random() * 30);
 
-  $(this).animate({ left: x, bottom: y }, 200, function() { truco.playCardAfterAnimation(); });
+  const currentLeftStr = $(this).css('left');
+  const currentTopStr = $(this).css('top');
+  const currentLeft = currentLeftStr.substring(0, currentLeftStr.length - 2);
+  const currentTop = currentTopStr.substring(0, currentTopStr.length - 2);
+
+  $(this).css('transform', 'translate(' + (x - currentLeft) + 'px,' + (y - currentTop) + 'px)');
+
+  setTimeout(truco.playCardAfterAnimation, 500);
+  //$(this).animate({ left: x, bottom: y }, 200, function() { truco.playCardAfterAnimation(); });
 
 },
 
@@ -390,7 +411,7 @@ playCardAfterAnimation: function() {
 
 drawCard: function(i, x, y) {
 
-  $('<div></div>').appendTo('#gameDiv').
+  $('<div></div>').appendTo('#cardsContainer').
     attr('id', 'humanCardDiv_' + i).
     addClass('humanCard').
     data('i', i).
@@ -401,11 +422,12 @@ drawCard: function(i, x, y) {
     css('background-size',
                   truco.CARD_WIDTH * 10 + 'px ' + truco.CARD_HEIGHT * 4 + 'px').
     css('left', x + 'px').
-    css('bottom', y + 'px').
+    css('bottom', '0px').
     css('background-position-x',
                       truco.mano.humanCards[i] % 10 * -truco.CARD_WIDTH + 'px').
     css('background-position-y',
-          Math.floor(truco.mano.humanCards[i] / 10) * truco.CARD_HEIGHT + 'px');
+          Math.floor(truco.mano.humanCards[i] / 10) * truco.CARD_HEIGHT + 'px').
+    css('transition', 'all 200ms ease-in-out');
 
 },
 
@@ -494,8 +516,17 @@ $(function() { truco.main(); });
 </head>
 <body style="background:black">
 <div id="gameDiv" style="color:#EEEEEE; font-family:commodore_64regular; font-size:140%; margin:auto">
-  <h1>Tr<span style="font-size:105%">u</span><span style="font-size:110%">c</span><span style="font-size:100%">o</span><span style="font-size:50%"> v</span><span style="font-size:30%">0.1<br /></span><span style="font-size:40%; margin-left:30px">by Tito</span></h1>
-  <div id="scoreOuterDiv"></div>
+  <div>
+    Tr<span style="font-size:105%">u</span><span style="font-size:110%">c</span><span style="font-size:100%">o</span><span style="font-size:50%"> v0.1</span>
+  </div>
+  <div> <span style="font-size:70%; margin-left:30px">by Tito</span></div>
+  <div id="scoreContainer"></div>
+  <div id="cardsContainer">
+    <div id="compCard_0" class="compCard"></div>
+    <div id="compCard_1" class="compCard"></div>
+    <div id="compCard_2" class="compCard"></div>
+  </div>
+  <div id="cantarButton">Cantar</div>
 </div>
 </body>
 </html>
