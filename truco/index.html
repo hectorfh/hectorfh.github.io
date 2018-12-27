@@ -18,9 +18,9 @@
   #cardsContainer {
     position:absolute;
     width:300px;
-    height:140px;
-    left:5px;
-    top:70px;
+    height:210px;
+    left:0px;
+    top:0px;
   }
 
   #scoreContainer {
@@ -33,9 +33,32 @@
     position: absolute;
     background-image: url('atras.png');
     background-size: 100%;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     display: none;
+  }
+
+  .card {
+    position: absolute;
+    background-image: url('naipes.png');
+    background-size: 700px 280px;
+    width: 70px;
+    height: 70px;
+    top: 140px;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+    
+    /*
+        css('background-size',
+                  truco.CARD_WIDTH * 10 + 'px ' + truco.CARD_HEIGHT * 4 + 'px').
+    css('left', x + 'px').
+    css('bottom', '0px').
+    css('background-position-x',
+                      truco.mano.humanCards[i] % 10 * -truco.CARD_WIDTH + 'px').
+    css('background-position-y',
+          Math.floor(truco.mano.humanCards[i] / 10) * truco.CARD_HEIGHT + 'px').
+    css('transition', 'all 200ms ease-in-out');
+*/
   }
 
   #cantarButton {
@@ -149,8 +172,8 @@ moveCompCard: function(i) {
 drawCompCard: function(i) {
 
   // Get random card destination.
-  const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
-  const y = 80 + Math.floor(Math.random() * 30);
+  const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 20);
+  const y = 20 + Math.floor(Math.random() * 10);
 
   cardDiv = document.getElementById('compCard_' + i);
   cardDiv.style.left = x + 'px';
@@ -281,21 +304,6 @@ drawScore: function(left, top, humanPoints, computerPoints) {
 
 },
 
-drawCantar: function() {
-  $('<div>Cantar</div>').appendTo('#gameDiv').
-    attr('id', 'cantar').
-    css('cursor', 'pointer').
-    css('position', 'absolute').
-    //css('left', '0px').
-    css('padding', '20px 10px').
-    css('bottom', '125px').
-    css('color', 'white').
-    css('border', '2px solid white').
-    css('background-color', 'black').
-    click(function() { truco.drawMenu(); });
-
-},
-
 drawMenu: function() {
 
   $('<div></div>').appendTo('#gameDiv').
@@ -358,10 +366,7 @@ closeMenu: function() {
   setTimeout(function() { $('#menu').remove() }, 500);
 },
 
-playCard: function() {
-
-  // Get card index.
-  const i = $(this).data('i');
+playCard: function(i) {
 
   // Get card.
   const card = truco.mano.humanCards[i];
@@ -375,21 +380,29 @@ playCard: function() {
   // Push played card on playedCards array.
   truco.mano.playedCards.push(card);
 
+  
+  // Get card DOM element.
+  const cardElem = document.getElementById('card_' + i);
+
   // Put card div on top of z index.
-  $(this).css('z-index', truco.mano.playedCards.length);
+  cardElem.style.zIndex = truco.mano.playedCards.length;
 
   truco.disableHumanCards();
 
   // Get random card destination.
-  const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 40);
-  const y = 310 + Math.floor(Math.random() * 30);
+  const origX = cardElem.style.left.substring(0, cardElem.style.left.length - 2);
+  const destX = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * truco.CARD_WIDTH + Math.floor(Math.random() * 20);
+  const dX = destX - origX;
+  const dY = -85 + Math.floor(Math.random() * 20);
 
+  /*
   const currentLeftStr = $(this).css('left');
   const currentTopStr = $(this).css('top');
   const currentLeft = currentLeftStr.substring(0, currentLeftStr.length - 2);
-  const currentTop = currentTopStr.substring(0, currentTopStr.length - 2);
+  const currentTop = currentTopStr.substring(0, currentTopStr.length - 2);*/
 
-  $(this).css('transform', 'translate(' + (x - currentLeft) + 'px,' + (y - currentTop) + 'px)');
+  cardElem.style.cursor = 'default';
+  cardElem.style.transform = 'translate(' + dX + 'px,' + dY + 'px)';
 
   setTimeout(truco.playCardAfterAnimation, 500);
   //$(this).animate({ left: x, bottom: y }, 200, function() { truco.playCardAfterAnimation(); });
@@ -411,23 +424,11 @@ playCardAfterAnimation: function() {
 
 drawCard: function(i, x, y) {
 
-  $('<div></div>').appendTo('#cardsContainer').
-    attr('id', 'humanCardDiv_' + i).
-    addClass('humanCard').
-    data('i', i).
-    css('background-image', "url('naipes.png')").
-    css('position', 'absolute').
-    css('width', truco.CARD_WIDTH + 'px').
-    css('height', truco.CARD_HEIGHT + 'px').
-    css('background-size',
-                  truco.CARD_WIDTH * 10 + 'px ' + truco.CARD_HEIGHT * 4 + 'px').
-    css('left', x + 'px').
-    css('bottom', '0px').
-    css('background-position-x',
-                      truco.mano.humanCards[i] % 10 * -truco.CARD_WIDTH + 'px').
-    css('background-position-y',
-          Math.floor(truco.mano.humanCards[i] / 10) * truco.CARD_HEIGHT + 'px').
-    css('transition', 'all 200ms ease-in-out');
+  const cardElem = document.getElementById('card_' + i);
+
+  cardElem.style.left = x + 'px';
+  cardElem.style.backgroundPositionX = truco.mano.humanCards[i] % 10 * -truco.CARD_WIDTH + 'px';
+  cardElem.style.backgroundPositionY = Math.floor(truco.mano.humanCards[i] / 10) * truco.CARD_HEIGHT + 'px';
 
 },
 
@@ -525,6 +526,10 @@ $(function() { truco.main(); });
     <div id="compCard_0" class="compCard"></div>
     <div id="compCard_1" class="compCard"></div>
     <div id="compCard_2" class="compCard"></div>
+
+    <div id="card_0" class="card" onclick="truco.playCard(0)"></div>
+    <div id="card_1" class="card" onclick="truco.playCard(1)"></div>
+    <div id="card_2" class="card" onclick="truco.playCard(2)"></div>
   </div>
   <div id="cantarButton">Cantar</div>
 </div>
