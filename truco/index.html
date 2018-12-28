@@ -15,6 +15,12 @@
     to {max-width: 0px; max-height: 0px}
   }
 
+  #gameDiv {
+    position: relative;
+    width: 600px;
+    background-color: red;
+  }
+  
   #cardsContainer {
     position:absolute;
     width:300px;
@@ -41,9 +47,9 @@
   .card {
     position: absolute;
     background-image: url('naipes.png');
-    background-size: 700px 280px;
-    width: 70px;
-    height: 70px;
+    background-size: 1400px 560px;
+    width: 140px;
+    height: 140px;
     top: 140px;
     transition: all 200ms ease-in-out;
     cursor: pointer;
@@ -51,14 +57,13 @@
 
   #menuContainer {
     position: absolute;
-    width: 43px;
-    height: 13px;
-    left: 230px;
+    width: 140px;
+    height: 140px;
+    left: 435px;
     top: 141px;
     border: 1px solid white;
     border-radius: 7px;
     font-size:9px;
-    padding:27px 8px;
     cursor: pointer;
   }
 
@@ -149,8 +154,8 @@
 
 const truco = {
 
-CARD_WIDTH: 70,
-CARD_HEIGHT: 70,
+CARD_WIDTH: 140,
+CARD_HEIGHT: 140,
 
 BACKGROUND_COLOR: 'black',
 TEXT_COLOR: '#EEEEEE',
@@ -179,13 +184,6 @@ probabilidadesRequeridasAceptacionNormal: [0.5, 0.6, 0.9],
 cardsEnabled: false,
 
 main: function() {
-
-  // create game div
-  $('#gameDiv').
-    css('position', 'relative').
-    css('width', '300px').
-    //css('height', '100vh').
-    css('background-color', 'black');
 
   // shuffle cards array
   const mazo = this.shuffleArray(Array(40).fill().map((e,i) => i));
