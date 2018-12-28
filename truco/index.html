@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=600; initial-scale=1.0" />
+<meta name="viewport" content="width=400" />
 <link rel="stylesheet" href="commodore-64-v621c-webfont.css" />
 <style>
   /* The animation code */
@@ -17,7 +17,7 @@
 
   #gameDiv {
     position: relative;
-    width: 600px;
+    width: 416px;
     background-color: red;
   }
   
@@ -47,19 +47,19 @@
   .card {
     position: absolute;
     background-image: url('naipes.png');
-    background-size: 1400px 560px;
-    width: 140px;
-    height: 140px;
-    top: 140px;
+    background-size: 1000px 400px;
+    width: 100px;
+    height: 100px;
+    top: 200px;
     transition: all 200ms ease-in-out;
     cursor: pointer;
   }
 
   #menuContainer {
     position: absolute;
-    width: 140px;
-    height: 140px;
-    left: 435px;
+    width: 100px;
+    height: 100px;
+    left: 312px;
     top: 141px;
     border: 1px solid white;
     border-radius: 7px;
@@ -68,25 +68,6 @@
   }
 
   #menu {
-      /*$('<div></div>').appendTo('#gameDiv').
-    attr('id', 'menu').
-    css('position', 'absolute').
-    css('left', '0px').
-    css('bottom', '130px').
-    css('overflow', 'hidden').
-    css('font-size', '1em').
-    css('color', 'white').
-    css('border', '2px solid white').
-    css('width', '100%').
-    css('height', '330px').
-    css('animation-name', 'open-animation').
-    css('animation-duration', '500ms').
-    css('background-color', 'black');
-
-  $('<div></div>').appendTo('#menu').
-    css('position', 'relative').
-    css('height', '30px');*/
-
     position: absolute;
     overflow:hidden;
     right: -1px;
@@ -154,8 +135,8 @@
 
 const truco = {
 
-CARD_WIDTH: 140,
-CARD_HEIGHT: 140,
+CARD_WIDTH: 100,
+CARD_HEIGHT: 100,
 
 BACKGROUND_COLOR: 'black',
 TEXT_COLOR: '#EEEEEE',
