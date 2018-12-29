@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=416" />
+<meta name="viewport" content="width=840" />
 <link rel="stylesheet" href="commodore-64-v621c-webfont.css" />
 <style>
   /* The animation code */
   @keyframes open-menu-animation {
     from {max-width: 0px; max-height: 0px}
-    to {max-width: 300px; max-height: 300px}
+    to {max-width: 800px; max-height: 800px}
   }
 
   @keyframes close-menu-animation {
-    from {max-width: 300px; max-height: 300px}
+    from {max-width: 800px; max-height: 800px}
     to {max-width: 0px; max-height: 0px}
   }
 
   #gameDiv {
     position: relative;
-    width: 416px;
-    background-color: red;
+    width: 840px;
   }
-  
+
+  #trucoTitle {
+    font-size:70px;
+  }
+
+  #titoLabel {
+    margin-left:100px;
+  }
+
   #cardsContainer {
     position:absolute;
     width:300px;
@@ -31,7 +38,7 @@
 
   #scoreContainer {
     position:absolute;
-    left:120px;
+    left:520px;
     top:10px;
   }
 
@@ -39,32 +46,32 @@
     position: absolute;
     background-image: url('atras.png');
     background-size: 100%;
-    width: 70px;
-    height: 70px;
+    width: 200px;
+    height: 200px;
     display: none;
   }
 
   .card {
     position: absolute;
     background-image: url('naipes.png');
-    background-size: 1000px 400px;
-    width: 100px;
-    height: 100px;
-    top: 200px;
+    background-size: 2000px 800px;
+    width: 200px;
+    height: 200px;
+    top: 400px;
     transition: all 200ms ease-in-out;
     cursor: pointer;
   }
 
   #menuContainer {
     position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 312px;
-    top: 141px;
-    border: 1px solid white;
-    border-radius: 7px;
+    width: 188px;
+    height: 196px;
+    left: 630px;
+    top: 402px;
+    border-radius: 20px;
     font-size:9px;
     cursor: pointer;
+    background-color:white;
   }
 
   #menu {
@@ -72,43 +79,64 @@
     overflow:hidden;
     right: -1px;
     bottom: -1px;
-    width: 300px;
+    width: 800px;
     max-width: 0px;
     z-index: 1000;
     background-color: black;
-    font-size:20px;
+    font-size:40px;
   }
 
   .menuOption {
     overflow:hidden;
-    padding:10px 0;
+    padding:40px 0;
+  }
+
+  #outerOpenMenu {
+    width: 100%;
+    height: 100%;
   }
 
   #openMenu {
     position:absolute;
-    left:0;
-    top:0;
+    left:16px;
+    top:18px;
+    width:150px;
+    height:155px;
+    border: 3px solid black;
+  }
+
+  #openMenuLabelOuter {
+    display:table;
     width:100%;
     height:100%;
   }
-
+  
+  #openMenuLabel {
+    display:table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size:25px;
+    color: black;
+  }
+  
   #closeMenu {
     position: absolute;
     right: 0;
     bottom: 0;
     padding:8px;
-    font-size:30px;
+    font-size:80px;
   }
 
 </style>
-<script src="jquery-1.9.0.min.js"></script>
 </head>
 <body style="background:black">
 <div id="gameDiv" style="color:#EEEEEE; font-family:commodore_64regular; font-size:140%; margin:auto">
-  <div>
-    Tr<span style="font-size:105%">u</span><span style="font-size:110%">c</span><span style="font-size:100%">o</span><span style="font-size:50%"> v0.1</span>
+  <div id="trucoTitle">
+    <div>
+      Tr<span style="font-size:105%">u</span><span style="font-size:110%">c</span><span style="font-size:100%">o</span><span style="font-size:50%"> v0.1</span>
+    </div>
+    <div id="titoLabel"><span style="font-size:70%">by Tito</span></div>
   </div>
-  <div> <span style="font-size:70%; margin-left:30px">by Tito</span></div>
   <div id="scoreContainer"></div>
   <div id="cardsContainer">
     <div id="compCard_0" class="compCard"></div>
@@ -120,7 +148,13 @@
     <div id="card_2" class="card" onclick="truco.playCard(2)"></div>
   </div>
   <div id="menuContainer">
-    <div id="openMenu" onclick="truco.showMenu()">Cantar</div>
+    <div id="outerOpenMenu" onclick="truco.showMenu()">
+      <div id="openMenu">
+        <div id="openMenuLabelOuter">
+          <div id="openMenuLabel">Cantar</div>
+        </div>
+      </div>
+    </div>
     <div id="menu">
       <div class="menuOption">&gt; Opcion 1</div>
       <div class="menuOption">&gt; Opcion 2</div>
@@ -135,8 +169,9 @@
 
 const truco = {
 
-CARD_WIDTH: 100,
-CARD_HEIGHT: 100,
+CARD_WIDTH: 200,
+CARD_HEIGHT: 200,
+CARD_SEP: 10,
 
 BACKGROUND_COLOR: 'black',
 TEXT_COLOR: '#EEEEEE',
@@ -179,7 +214,7 @@ main: function() {
 
   // draw human cards
   truco.mano.humanCards.forEach(function(card, i) {
-    truco.drawCard(i, i * (truco.CARD_WIDTH + 4), 200);
+    truco.drawCard(i, i * (truco.CARD_WIDTH + truco.CARD_SEP), 200);
   });
 
   // draw computer cards
@@ -187,9 +222,7 @@ main: function() {
     //truco.drawCompCard(i, 1 + i * (truco.COMP_CARD_WIDTH + 4), 10);
   });
 
-  console.info(this.mano);
-
-  $('#gameDiv').on('click', '.humanCard', truco.playCard);
+  //$('#gameDiv').on('click', '.humanCard', truco.playCard);
 
   //truco.drawMenu();
 
@@ -221,13 +254,13 @@ moveCompCard: function(i) {
 
 drawCompCard: function(i) {
 
-  // Get random card destination.
-  const x = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * 60 + Math.floor(Math.random() * 20);
-  const y = 20 + Math.floor(Math.random() * 10);
-
   const cardDiv = document.getElementById('compCard_' + i);
-  cardDiv.style.left = x + 'px';
-  cardDiv.style.top = y + 'px';
+  cardDiv.style.left = truco.getRandomCardPositionX() + 'px';
+  cardDiv.style.top = truco.getRandomCardPositionY(truco.COMPUTER) + 'px';
+  //cardDiv.style.left = '100px';
+  //cardDiv.style.top = '100px';
+
+  console.info(truco.getRandomCardPositionY(truco.COMPUTER) + 'px');
   cardDiv.style.zIndex = truco.mano.playedCards.length;
   cardDiv.style.display = 'block';
 
@@ -281,20 +314,35 @@ drawScore: function(left, top, humanPoints, computerPoints) {
 
     const COLOR = truco.TEXT_COLOR;
 
-    if (points > 0) {
-        drawDiv(left, top, PENCIL_LONG, PENCIL_WIDTH, COLOR);
-    }
+    const squareDivs = [
+      {
+        left: left,
+        top: top,
+        width: PENCIL_LONG,
+        height: PENCIL_WIDTH
+      },
+      {
+        left: left,
+        top: top,
+        width: PENCIL_WIDTH,
+        height: PENCIL_LONG
+      },
+      {
+        left: left + PENCIL_LONG - PENCIL_WIDTH,
+        top: top,
+        width: PENCIL_WIDTH,
+        height: PENCIL_LONG
+      },
+      {
+        left: left,
+        top: top + PENCIL_LONG - PENCIL_WIDTH,
+        width: PENCIL_LONG,
+        height: PENCIL_WIDTH
+      }
+    ];
 
-    if (points > 1) {
-        drawDiv(left, top, PENCIL_WIDTH, PENCIL_LONG, COLOR);
-    }
-
-    if (points > 2) {
-        drawDiv(left + PENCIL_LONG - PENCIL_WIDTH, top, PENCIL_WIDTH, PENCIL_LONG, COLOR);
-    }
-
-    if (points > 3) {
-        drawDiv(left, top + PENCIL_LONG - PENCIL_WIDTH, PENCIL_LONG, PENCIL_WIDTH, COLOR);
+    for (var i = 0; i < points && i < 4; i++) {
+      drawDiv(squareDivs[i].left, squareDivs[i].top, squareDivs[i].width, squareDivs[i].height, COLOR);
     }
 
     if (points > 4) {
@@ -304,14 +352,24 @@ drawScore: function(left, top, humanPoints, computerPoints) {
     }
   }
 
+  /**
+   * Draw bare line used for drawing score square.
+   */
   const drawDiv = function(left, top, width, height, color) {
-    return $('<div></div>').appendTo('#scoreDiv').
-             css('position', 'absolute').
-             css('background-color', color).
-             css('left', left + 'px').
-             css('top', top + 'px').
-             css('width', width + 'px').
-             css('height', height + 'px');
+
+    const divElem = document.createElement('div');
+
+    divElem.style.position = 'absolute';
+    divElem.style.backgroundColor = color;
+    divElem.style.left = left + 'px';
+    divElem.style.top = top + 'px';
+    divElem.style.width = width + 'px';
+    divElem.style.height = height + 'px';
+
+    const scoreDivElem = document.getElementById('scoreDiv');
+
+    scoreDivElem.appendChild(divElem);
+
   }
 
   const drawX = function(left, top, points) {
@@ -328,26 +386,28 @@ drawScore: function(left, top, humanPoints, computerPoints) {
   }
 
   // remove score div if exists.
-  $('#scoreDiv').remove();
+  const scoreDivElem = document.getElementById("scoreDiv");
 
-  $('<div></div>').appendTo('#scoreContainer').attr('id',               'scoreDiv');
-                                               //css('position',         'absolute').
-                                         //css('background-color', 'green').
-                                               //css('right',             '10px').
-                                         //css('top',              top + 'px').
-                                               //css('width',            '200px').
-                                               //css('height',           '220px');
+  if (scoreDivElem !== null) {
+    scoreDivElem.remove();
+  }
+
+  const divElem = document.createElement('div');
+  divElem.id = 'scoreDiv';
+
+  const scoreContainerElem = document.getElementById('scoreContainer');
+  scoreContainerElem.appendChild(divElem);
 
   // split line
   drawDiv(90, 0, 5, 100, truco.TEXT_COLOR);
 
   // H
-  drawDiv(40, 0, 30, 30, 'default').css('font-size', '1em').
-                                            html('H');
+  drawDiv(40, 0, 30, 30, 'default')/*.css('font-size', '1em').
+                                            html('H')*/;
 
   // C
-  drawDiv(115, 0, 30, 30, 'default').css('font-size', '1em').
-                                            html('C');
+  drawDiv(115, 0, 30, 30, 'default')/*.css('font-size', '1em').
+                                            html('C')*/;
 
   drawX(0, 0, 18);  
   drawX(75, 0, 22);
@@ -359,8 +419,8 @@ showMenu: function() {
   console.info('showMenu');
   const menuElem = document.getElementById('menu');
 
-  menuElem.style.maxWidth = '300px';
-  menuElem.style.maxHeight = '300px';
+  menuElem.style.maxWidth = '800px';
+  menuElem.style.maxHeight = '800px';
   menuElem.style.animation = 'open-menu-animation';
   menuElem.style.animationDuration = '500ms';
 
@@ -403,11 +463,6 @@ closeMenu: function() {
   menuElem.style.animation = 'close-menu-animation';
   menuElem.style.animationDuration = '500ms';
   
-  /*$('#menu').css('width', '0%').
-             css('height', '0px').
-             css('animation', 'close-animation').
-             css('animation-duration', '500ms');*/
-
   //ssetTimeout(function() { menuElem.style.show = 'none'; }, 500);
 },
 
@@ -425,7 +480,6 @@ playCard: function(i) {
   // Push played card on playedCards array.
   truco.mano.playedCards.push(card);
 
-  
   // Get card DOM element.
   const cardElem = document.getElementById('card_' + i);
 
@@ -436,15 +490,11 @@ playCard: function(i) {
 
   // Get random card destination.
   const origX = cardElem.style.left.substring(0, cardElem.style.left.length - 2);
-  const destX = 10 + Math.floor((truco.mano.playedCards.length - 1) / 2) * truco.CARD_WIDTH + Math.floor(Math.random() * 20);
+  const destX = truco.getRandomCardPositionX();
   const dX = destX - origX;
-  const dY = -85 + Math.floor(Math.random() * 20);
-
-  /*
-  const currentLeftStr = $(this).css('left');
-  const currentTopStr = $(this).css('top');
-  const currentLeft = currentLeftStr.substring(0, currentLeftStr.length - 2);
-  const currentTop = currentTopStr.substring(0, currentTopStr.length - 2);*/
+  const origY = getComputedStyle(cardElem).top.substring(0, getComputedStyle(cardElem).top.length - 2);
+  const destY = truco.getRandomCardPositionY(truco.HUMAN);
+  const dY = destY - origY;
 
   cardElem.style.cursor = 'default';
   cardElem.style.transform = 'translate(' + dX + 'px,' + dY + 'px)';
@@ -452,6 +502,16 @@ playCard: function(i) {
   setTimeout(truco.playCardAfterAnimation, 500);
   //$(this).animate({ left: x, bottom: y }, 200, function() { truco.playCardAfterAnimation(); });
 
+},
+
+getRandomCardPositionX() {
+  return truco.CARD_SEP + Math.floor(Math.random() * truco.CARD_SEP * 2) +
+                          Math.floor((truco.mano.playedCards.length - 1) / 2) * truco.CARD_WIDTH;
+},
+
+getRandomCardPositionY(player) {
+  return truco.CARD_HEIGHT / 2 - truco.CARD_SEP * 2 + Math.floor(Math.random() * truco.CARD_SEP * 2) +
+                                 (player == truco.HUMAN ? truco.CARD_HEIGHT / 2 : 0);
 },
 
 playCardAfterAnimation: function() {
