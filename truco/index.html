@@ -22,10 +22,30 @@
 
   #trucoTitle {
     font-size:55px;
+    color: #3EE3CC;
   }
 
+  #v {
+    font-size:50%;
+    color: #F7FF03;
+  }
+  
+  #versionNumber {
+    font-size:50%;
+    color: #13493B;
+  }
+  
   #titoLabel {
     margin-left:75px;
+    font-size:70%
+  }
+  
+  #by {
+    color: #07FA00;
+  }
+  
+  #tito {
+    color: #A81F20;
   }
 
   #cardsContainer {
@@ -88,7 +108,9 @@
 
   .menuOption {
     overflow:hidden;
-    padding:27px 0;
+    /*padding:23px 0;*/
+    height:70px;
+    padding-top:20px;
   }
 
   #outerOpenMenu {
@@ -127,17 +149,54 @@
     font-size:80px;
   }
 
+  #compDice {
+    position: absolute;
+    top: 100px; /* CARD_HEIGHT * 2/3 */
+    left: 37px; /* CARD_WIDTH / 4 */
+    height: 75px; /* CARD_HEIGHT / 2 */
+    width:375px; /* CARD_WIDTH * 2.5 */
+    background: white;
+    border-radius: 20px;
+    border: 2px solid #A81F20;
+    z-index: 1000;
+    display:none;
+  }
+
+  #compDiceInner {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 344px; /* compDice.width - compDiceMsg.left * 2 - compDice.border * 2 */
+    height: 47px; /* compDice.height - compDiceMsg.top * 2 - compDice.border * 2 */
+    border: 2px solid #A81F20;
+    display: table;
+    
+  }
+  
+  #compDiceMsg {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size:30px;
+    color: #A81F20;
+  }
+
 </style>
 </head>
 <body style="background:black">
 <div id="gameDiv" style="color:#EEEEEE; font-family:commodore_64regular; font-size:140%; margin:auto">
   <div id="trucoTitle">
     <div>
-      Tr<span style="font-size:105%">u</span><span style="font-size:110%">c</span><span style="font-size:100%">o</span><span style="font-size:50%"> v0.1</span>
+      Tr<span style="font-size:105%">u</span><span style="font-size:110%">c</span><span style="font-size:100%">o</span><span id="v"> v</span><span id ="versionNumber">0.1</span>
     </div>
-    <div id="titoLabel"><span style="font-size:70%">by Tito</span></div>
+    <div id="titoLabel"><span id="by">by</span> <span id="tito">Tito</span></div>
   </div>
   <div id="scoreContainer"></div>
+  <div id="compDice">
+    <div id="compDiceInner">
+      <div id="compDiceMsg">Quiero Vale 4</div>
+    </div>
+  </div>
   <div id="cardsContainer">
     <div id="compCard_0" class="compCard"></div>
     <div id="compCard_1" class="compCard"></div>
@@ -151,7 +210,7 @@
     <div id="outerOpenMenu" onclick="truco.showMenu()">
       <div id="openMenu">
         <div id="openMenuLabelOuter">
-          <div id="openMenuLabel">Cantar</div>
+          <div id="openMenuLabel">Decir</div>
         </div>
       </div>
     </div>
@@ -247,6 +306,10 @@ main: function() {
   }
 
 },
+
+compDice(msg) {
+  
+}, 
 
 moveCompCard: function(i) {
   truco.drawCompCard(i);
