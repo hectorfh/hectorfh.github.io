@@ -337,6 +337,68 @@ main: function() {
 
 },
 
+/**
+ * Return the winner of the hand, if there is one.
+ * Possible values could be truco.MANO, truco.PIE or null.
+ *
+ */
+winner() {
+  if (truco.mano.playedCards.length == 4) {
+    if (truco.valor(truco.mano.playerCards[2]) > truco.valor(truco.mano.playerCards[3])) {
+      if (truco.valor(truco.mano.playerCards[0]) == truco.valor(truco.mano.playerCards[1])) {
+        // parda
+        return truco.MANO;
+      }
+      else {
+        return truco.winnerFirstCard();
+      }
+    }
+    else if (truco.valor(truco.mano.playerCards[2]) == truco.valor(truco.mano.playerCards[3])) {
+        return truco.winnerFirstCard();
+    }
+    else {
+      if (truco.valor(truco.mano.playerCards[0]) == truco.valor(truco.mano.playerCards[1])) {
+        // parda
+        return truco.PIE;
+      }
+    }
+  }
+
+  return null;
+},
+
+/**
+ * Return the winner of the first card, if there is one.
+ * Possible values could be truco.MANO, truco.PIE or null.
+ *
+ */
+winnerFirstCard() {
+
+  if (truco.mano.playedCards.length >= 2) {
+    if (truco.valor(truco.mano.playerCards[0]) > truco.valor(truco.mano.playerCards[1])) {
+      return truco.MANO;
+    }
+    else if (truco.valor(truco.mano.playerCards[0]) < truco.valor(truco.mano.playerCards[1])) {
+      return truco.PIE;
+    }
+  }
+
+  return null;
+},
+
+/**
+ * Return the opposite, if there is one. For instance, if value is MANO, return PIE.
+ *
+ */
+opposite(value) {
+  if (value == truco.MANO) {
+    return truco.PIE;
+  }
+  else if (value == truco.PIE) {
+    return truco.MANO;
+  }
+},
+
 compDice(msg) {
   
 }, 
