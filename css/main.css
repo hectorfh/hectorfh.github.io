@@ -1,0 +1,16 @@
+
+    body {
+      font-size: 18px !important;
+    }
+
+    @media (min-width: 1200px) {
+      .container {
+        width: 970px;
+      }
+    }
+
+    li {
+      list-style: circle;
+      padding-bottom: 15px;
+    }
+
