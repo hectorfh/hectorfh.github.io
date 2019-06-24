@@ -1,0 +1,200 @@
+/* The animation code */
+@keyframes open-menu-animation {
+    from {max-width: 0px; max-height: 0px}
+    to {max-width: 800px; max-height: 800px}
+}
+
+@keyframes close-menu-animation {
+    from {max-width: 800px; max-height: 800px}
+    to {max-width: 0px; max-height: 0px}
+}
+
+#gameDiv {
+    position: relative;
+    width: 630px;
+}
+
+#trucoTitle {
+    font-size:55px;
+    color: #3EE3CC;
+}
+
+#v {
+    font-size:50%;
+    color: #F7FF03;
+}
+
+#versionNumber {
+    font-size:50%;
+    color: #13493B;
+}
+
+#titoLabel {
+    margin-left:75px;
+    font-size:70%
+}
+
+#by {
+    color: #07FA00;
+}
+
+#tito {
+    color: #A81F20;
+}
+
+#cardsContainer {
+    position:absolute;
+    width:300px;
+    height:210px;
+    left:0px;
+    top:0px;
+}
+
+#scoreContainer {
+    position: absolute;
+    left:375px; /* CARD_WIDTH * 2.5 */
+    top:35px; /* CARD_SEP * 5 */
+}
+
+#scoreDivisorLine {
+    position: absolute;
+    height: 200px; /* CARD_HEIGHT * 4/6 */
+    width: 7px; /* CARD_SEP */
+    background-color: white;
+    left: 100px; /* CARD_WIDTH * 2/3 */
+    background-color: #07FA00;
+}
+
+#humanScoreLabel {
+    position: absolute;
+    left: 21px; /* CARD_SEP * 3 */
+    color: chocolate;
+}
+
+#computerScoreLabel {
+    position: absolute;
+    left: 129px; /* CARD_WIDTH - CARD_SEP * 3 */
+    color: #F7FF03;
+}
+
+#scoreContainerInner {
+    position: absolute;
+}
+
+.compCard {
+    position: absolute;
+    background-image: url('atras.png');
+    background-size: 100%;
+    width: 150px;
+    height: 150px;
+    display: none;
+}
+
+.card {
+    position: absolute;
+    background-image: url('naipes.png');
+    background-size: 1500px 600px; /* 10 * width and 4 * height */
+    width: 150px;
+    height: 150px;
+    top: 300px;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+#menuContainer {
+    position: absolute;
+    width: 138px;
+    height: 147px;
+    left: 473px;
+    top: 302px;
+    border-radius: 20px;
+    font-size:9px;
+    cursor: pointer;
+    background-color:white;
+}
+
+#menu {
+    position: absolute;
+    overflow:hidden;
+    right: -1px;
+    bottom: -1px;
+    width: 600px;
+    max-width: 0px;
+    z-index: 1000;
+    background-color: black;
+    font-size:40px;
+}
+
+.menuOption {
+    overflow:hidden;
+    /*padding:23px 0;*/
+    height:70px;
+    padding-top:20px;
+}
+
+#outerOpenMenu {
+    width: 100%;
+    height: 100%;
+}
+
+#openMenu {
+    position:absolute;
+    left:12px;
+    top:12px;
+    width:110px;
+    height:120px;
+    border: 2px solid black;
+}
+
+#openMenuLabelOuter {
+    display:table;
+    width:100%;
+    height:100%;
+}
+
+#openMenuLabel {
+    display:table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size:23px;
+    color: black;
+}
+
+#closeMenu {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding:8px;
+    font-size:80px;
+}
+
+#compDice {
+    position: absolute;
+    top: 0; /* CARD_HEIGHT * 2/3 */
+    left: 0; /* CARD_WIDTH / 4 */
+    height: 75px; /* CARD_HEIGHT / 2 */
+    width:100%; /* CARD_WIDTH * 2.5 */
+    background: red;
+    /*border-radius: 20px;
+    border: 2px solid #A81F20;*/
+    z-index: 1000;
+    /*display:none;*/
+}
+
+#compDiceInner {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 100%; /* compDice.width - compDiceMsg.left * 2 - compDice.border * 2 */
+    height: 47px; /* compDice.height - compDiceMsg.top * 2 - compDice.border * 2 */
+    /*border: 2px solid #A81F20;*/
+    display: table;
+
+}
+
+#compDiceMsg {
+    display: table-cell;
+    vertical-align: middle;
+    font-size:25px;
+    color: white;
+}
