@@ -38,7 +38,8 @@ const trcor = {
             humanCards: mazo.slice(0, 3),
             computerCards: mazo.slice(3, 6),
             playedCards: [],
-            manoPlayer: null
+            manoPlayer: null,
+            gameStatus: GameStatus.INITIAL
         };
 
     },

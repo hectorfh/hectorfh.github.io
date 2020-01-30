@@ -1,14 +1,3 @@
-/* The animation code */
-@keyframes open-menu-animation {
-    from {max-width: 0px; max-height: 0px}
-    to {max-width: 800px; max-height: 800px}
-}
-
-@keyframes close-menu-animation {
-    from {max-width: 800px; max-height: 800px}
-    to {max-width: 0px; max-height: 0px}
-}
-
 #gameDiv {
     position: relative;
     width: 630px;
@@ -120,9 +109,16 @@
     bottom: -1px;
     width: 600px;
     max-width: 0px;
+    max-height: 0px;
     z-index: 1000;
     background-color: black;
     font-size:40px;
+    transition: all 200ms;
+}
+
+#menu.open {
+    max-width: 600px;
+    max-height: 500px;
 }
 
 .menuOption {

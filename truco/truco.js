@@ -112,22 +112,23 @@ const truco = {
 
     },
 
+    /**
+     * Show game menu with options, ie. 'Envido', 'Truco', 'Retruco', 'Quiero'...
+     *
+     */
     showMenu: function() {
 
         console.info('showMenu');
         const menuElem = document.getElementById('menu');
 
-        menuElem.style.maxWidth = '800px';
-        menuElem.style.maxHeight = '800px';
-        menuElem.style.animation = 'open-menu-animation';
-        menuElem.style.animationDuration = '500ms';
+        menuElem.className = 'open';
 
-        /*trcor.drawMenuOption('FLOR', '-> C.Flor.Resto', function() {});
-        trcor.drawMenuOption('ME_VOY', '-> Me voy', function() {});
-        trcor.drawMenuOption('QUIERO', '-> Quiero', function() {});
-        trcor.drawMenuOption('NO_QUIERO', '-> No quiero', function() {});
-        trcor.drawMenuOption('FALTA_ENVIDO', '-> Falta envido', function() {});
-        trcor.drawMenuOption('BACK', '<-', trcor.closeMenu);*/
+        const menuOptionsElem = document.getElementById('menuOptions');
+
+        menuOptionsElem.innerHTML = GameMenu.optionsToDisplay()
+                                            .map(option => '<div class="menuOption">&gt; ' + option.label + '</div>')
+                                            .join('');
+
 
     },
     /*
@@ -156,10 +157,11 @@ const truco = {
         //
         const menuElem = document.getElementById('menu');
 
-        menuElem.style.maxWidth = 0;
-        menuElem.style.maxHeight = 0;
-        menuElem.style.animation = 'close-menu-animation';
-        menuElem.style.animationDuration = '500ms';
+        menuElem.className = '';
+        //menuElem.style.maxWidth = 0;
+        //menuElem.style.maxHeight = 0;
+        //menuElem.style.animation = 'close-menu-animation';
+        //menuElem.style.animationDuration = '500ms';
 
         //ssetTimeout(function() { menuElem.style.show = 'none'; }, 500);
     },
