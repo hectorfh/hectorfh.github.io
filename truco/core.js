@@ -57,11 +57,11 @@ const trcor = {
                     return trcor.manoPlayer();
                 }
                 else {
-                    return trcor.winnerFirstCard();
+                    return trcor.winnerFirstCard(trcor.mano.playedCards);
                 }
             }
             else if (trcor.valor(trcor.mano.playedCards[2]) == trcor.valor(trcor.mano.playedCards[3])) {
-                return trcor.winnerFirstCard();
+                return trcor.winnerFirstCard(trcor.mano.playedCards);
             }
             else {
                 if (trcor.valor(trcor.mano.playedCards[0]) == trcor.valor(trcor.mano.playedCards[1])) {
@@ -79,13 +79,13 @@ const trcor = {
      * Possible values could be trcor.MANO, trcor.PIE or null.
      *
      */
-    winnerFirstCard() {
+    winnerFirstCard(playedCards) {
 
-        if (trcor.mano.playedCards.length >= 2) {
-            if (trcor.valor(trcor.mano.playedCards[0]) > trcor.valor(trcor.mano.playedCards[1])) {
+        if (playedCards.length >= 2) {
+            if (trcor.valor(playedCards[0]) > trcor.valor(playedCards[1])) {
                 return trcor.manoPlayer();
             }
-            else if (trcor.valor(trcor.mano.playedCards[0]) < trcor.valor(trcor.mano.playedCards[1])) {
+            else if (trcor.valor(playedCards[0]) < trcor.valor(playedCards[1])) {
                 return trcor.piePlayer();
             }
         }

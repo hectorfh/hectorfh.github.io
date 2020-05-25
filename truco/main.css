@@ -49,7 +49,6 @@
     position: absolute;
     height: 200px; /* CARD_HEIGHT * 4/6 */
     width: 7px; /* CARD_SEP */
-    background-color: white;
     left: 100px; /* CARD_WIDTH * 2/3 */
     background-color: #07FA00;
 }
@@ -168,13 +167,24 @@
     position: absolute;
     top: 0; /* CARD_HEIGHT * 2/3 */
     left: 0; /* CARD_WIDTH / 4 */
-    height: 75px; /* CARD_HEIGHT / 2 */
+    height: 100px; /* CARD_HEIGHT / 2 */
+    /*max-height: 0;*/
+    opacity: 0;
     width:100%; /* CARD_WIDTH * 2.5 */
-    background: red;
+    background: black;
     /*border-radius: 20px;
     border: 2px solid #A81F20;*/
     z-index: 1000;
     /*display:none;*/
+
+    transition: all 300ms;
+    box-sizing: border-box;
+    border: 10px solid rgb(238, 238, 238);
+}
+
+#compDice.show {
+    /*max-height: 75px;*/
+    opacity: 1;
 }
 
 #compDiceInner {
@@ -191,6 +201,6 @@
 #compDiceMsg {
     display: table-cell;
     vertical-align: middle;
-    font-size:25px;
-    color: white;
+    font-size:50px;
+    color: rgb(238, 238, 238);
 }

@@ -48,7 +48,7 @@ const truco = {
             truco.enableHumanCards();
         }
 
-        truco.compDice('bla bla bla bla bla bla bla bla bla bla bla bla bla bla');
+        truco.compDice('Prueba');
     },
 
 
@@ -66,6 +66,10 @@ const truco = {
     },*/
 
     compDice(msg) {
+
+        const compDiceDiv = document.getElementById('compDice');
+        compDiceDiv.className = 'show';
+
         const compDiceMsgDiv = document.getElementById('compDiceMsg');
         compDiceMsgDiv.innerHTML = msg;
     },
@@ -112,25 +116,6 @@ const truco = {
 
     },
 
-    /**
-     * Show game menu with options, ie. 'Envido', 'Truco', 'Retruco', 'Quiero'...
-     *
-     */
-    showMenu: function() {
-
-        console.info('showMenu');
-        const menuElem = document.getElementById('menu');
-
-        menuElem.className = 'open';
-
-        const menuOptionsElem = document.getElementById('menuOptions');
-
-        menuOptionsElem.innerHTML = GameMenu.optionsToDisplay()
-                                            .map(option => '<div class="menuOption">&gt; ' + option.label + '</div>')
-                                            .join('');
-
-
-    },
     /*
     drawMenuOption: function(code, text, func) {
 
