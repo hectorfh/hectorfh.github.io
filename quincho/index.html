@@ -9,6 +9,18 @@
       font-size:16px;
     }
 
+    .aire-acond {
+      position:absolute;
+      width:100px;
+      height:20px;
+      background-color:steelBlue;
+      color:white;
+      text-align:center;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .llave {
       position:absolute;
       width:20px;
@@ -114,6 +126,7 @@
     <div class="ventilador" style="left:320px;top:270px">AB</div>
     <div class="ventilador" style="left:540px;top:270px">AC</div>
     <div class="tablero" style="left:560px;top:420px">AD</div>
+    <div class="aire-acond" style="left:350px;top:420px">Aire Acond</div>
 
     <div class="llave-toma" style="left:725px;top:425px">B1</div>
     <div class="toma" style="left:755px;top:315px">B2</div>
@@ -133,10 +146,12 @@
 
     <div class="llave-toma" style="left:960px;top:140px">E1</div>
     <div class="toma-bajo" style="left:1140px;top:170px">E2</div>
-    <div class="toma-bajo" style="left:960px;top:370px">E3</div>
+    <div class="toma-bajo" style="left:960px;top:350px">E3</div>
     <div class="toma-bajo" style="left:1140px;top:370px">E4</div>
-    <div class="luz" style="left:1050px;top:200px">E5</div>
-    <div class="luz" style="left:1050px;top:340px">E6</div>
+    <div class="toma" style="left:960px;top:370px">E5</div>
+    <div class="luz" style="left:1050px;top:200px">E6</div>
+    <div class="luz" style="left:1050px;top:340px">E7</div>
+    <div class="toma-exterior" style="left:1165px;top:280px">E8</div>
 
     <div class="llave" style="left:660px;top:425px">F1</div>
     <div class="luz" style="left:210px;top:533px">F2</div>
@@ -169,6 +184,7 @@
         <li>AB - Ventilador con luz</li>
         <li>AC - Ventilador con luz</li>
         <li>AD - Tablero</li>
+        <li>- Aire Acond</li>
       </ul>
     </div>
     <div style="float:left">
@@ -202,8 +218,10 @@
         <li>E2 - Toma doble a baja altura</li>
         <li>E3 - Toma doble a baja altura</li>
         <li>E4 - Toma doble a baja altura</li>
-        <li>E5 - Luz</li>
+        <li>E5 - Toma doble</li>
         <li>E6 - Luz</li>
+        <li>E7 - Luz</li>
+        <li>E8 - Toma exterior</li>
       </ul>
     </div>
     <div style="float:left">
