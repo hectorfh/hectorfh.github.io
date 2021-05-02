@@ -36,6 +36,18 @@
       text-align:center;
     }
 
+    .tablero {
+      position:absolute;
+      width:20px;
+      height:50px;
+      background-color:red;
+      color:white;
+      text-align:center;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .toma {
       position:absolute;
       width:20px;
@@ -54,6 +66,14 @@
       text-align:center;
     }
 
+    .toma-externo {
+      position:absolute;
+      width:20px;
+      height:20px;
+      background-color:navy;
+      color:white;
+      text-align:center;
+    }
 
     .ventilador {
       position:absolute;
@@ -84,15 +104,15 @@
     <div class="llave-ventilador" style="left:580px;top:405px">A1</div>
     <div class="llave-ventilador" style="left:600px;top:405px">A2</div>
     <div class="toma" style="left:580px;top:425px">A3</div>
-    <div class="toma-bajo" style="left:270px;top:420px">A4</div>
+    <div class="toma" style="left:200px;top:105px">A4</div>
     <div class="toma" style="left:685px;top:245px">A5</div>
     <div class="toma" style="left:685px;top:270px">A6</div>
     <div class="toma" style="left:140px;top:280px">A7</div>
-    <div class="toma" style="left:200px;top:105px">A8</div>
+    <div class="toma-bajo" style="left:270px;top:420px">A8</div>
     <div class="toma-bajo" style="left:360px;top:105px">A9</div>
     <div class="toma-bajo" style="left:620px;top:105px">AA</div>
-    <div class="ventilador" style="left:300px;top:270px">AB</div>
-    <div class="ventilador" style="left:520px;top:270px">AC</div>
+    <div class="ventilador" style="left:320px;top:270px">AB</div>
+    <div class="ventilador" style="left:540px;top:270px">AC</div>
 
     <div class="llave-toma" style="left:725px;top:425px">B1</div>
     <div class="toma" style="left:755px;top:315px">B2</div>
@@ -115,11 +135,78 @@
     <div class="toma-bajo" style="left:1140px;top:370px">E4</div>
     <div class="luz" style="left:1050px;top:200px">E5</div>
     <div class="luz" style="left:1050px;top:340px">E6</div>
+    <div class="tablero" style="left:960px;top:170px">E7</div>
 
     <div class="llave" style="left:600px;top:425px">F1</div>
     <div class="luz" style="left:210px;top:533px">F2</div>
     <div class="luz" style="left:400px;top:538px">F3</div>
     <div class="luz" style="left:590px;top:540px">F4</div>
+    <div class="toma-externo" style="left:270px;top:450px">F5</div>
+    <div class="toma-externo" style="left:580px;top:450px">F6</div>
+  </div>
+
+  <div>
+    <div style="float:left">
+      <ul>
+        <li>A1 - Control ventilador</li>
+        <li>A2 - Control ventilador</li>
+        <li>A3 - Toma doble</li>
+        <li>A4 - Toma doble</li>
+        <li>A5 - Toma doble</li>
+        <li>A6 - Toma doble</li>
+        <li>A7 - Toma doble</li>
+        <li>A8 - Toma doble a baja altura</li>
+        <li>A9 - Toma doble a baja altura</li>
+        <li>AA - Toma doble a baja altura</li>
+        <li>AB - Ventilador con luz</li>
+        <li>AC - Ventilador con luz</li>
+      </ul>
+    </div>
+    <div style="float:left">
+      <ul>
+        <li>B1 - Punto y toma</li>
+        <li>B2 - Toma doble</li>
+        <li>B3 - Luz</li>
+      </ul>
+    </div>
+    <div style="float:left">
+      <ul>
+        <li>C1 - Punto y toma</li>
+        <li>C2 - Luz</li>
+      </ul>
+    </div>
+    <div style="float:left">
+      <ul>
+        <li>D1 - Ventilador con luz</li>
+        <li>D2 - Control ventilador</li>
+        <li>D3 - Toma doble a baja altura</li>
+        <li>D4 - Toma doble a baja altura</li>
+        <li>D5 - Toma doble a baja altura</li>
+        <li>D6 - Toma doble a baja altura</li>
+        <li>D7 - Toma doble</li>
+      </ul>
+    </div>
+    <div style="float:left">
+      <ul>
+        <li>E1 - Punto y toma</li>
+        <li>E2 - Toma doble a baja altura</li>
+        <li>E3 - Toma doble a baja altura</li>
+        <li>E4 - Toma doble a baja altura</li>
+        <li>E5 - Luz</li>
+        <li>E6 - Luz</li>
+        <li>E7 - Tablero</li>
+      </ul>
+    </div>
+    <div style="float:left">
+      <ul>
+        <li>F1 - Llave luces del alero</li>
+        <li>F2 - Luz</li>
+        <li>F3 - Luz</li>
+        <li>F4 - Luz</li>
+        <li>F5 - Toma externo</li>
+        <li>F6 - Toma externo</li>
+      </ul>
+    </div>
   </div>
 </body>
 </html>
