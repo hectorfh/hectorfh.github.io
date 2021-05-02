@@ -11,7 +11,7 @@ type Player int
 const (
     Computer Player = iota
     Human
-    Noone
+    None
 )
 
 var rates = []int {
@@ -27,7 +27,7 @@ func main() {
 
 }
 
-func winProb(plydCards []int, mano Player, compCards []int) {
+func winProb(plydCards []int, mano Player, compCards []int) float {
 
     switch (len(plydCards)) {
 
@@ -41,32 +41,52 @@ func winProb(plydCards []int, mano Player, compCards []int) {
         case 1:
             if mano == Computer {
 
-                return cardProb(plydCards[0]) * cardProb(compCards[1]) +
-                    cardProb(plydCards[0]) * cardProb(compCards[2]) +
-                    cardProb(compCards[1]) * cardProb(compCards[2]) -
-                    2 * cardProb(plydCards[0]) * cardProb(compCards[1]) *
-                    cardProb(compCards[2])
+                return cardProb(plydCards[0]) * cardProb(compCards[0]) +
+                    cardProb(plydCards[0]) * cardProb(compCards[1]) +
+                    cardProb(compCards[0]) * cardProb(compCards[1]) -
+                    2 * cardProb(plydCards[0]) * cardProb(compCards[0]) *
+                    cardProb(compCards[1])
 
             } else {
 
-                //
                 bestPlay := bestPlay(plydCards, mano, compCards)
-
                 plydCards = append(plydCards, bestPlay)
-
                 compCards = removeCard(compCards, bestPlay)
-
-                winProb(plydCards, mano, compCards)
+                return winProb(plydCards, mano, compCards)
                 
             }
         case 2:
-            // ver quien gano la primera mano
             firstCardWinner := firstCardWinner(plydCards, mano)
 
             if firstCardWinner == Computer {
+                return cardProb(compCards[0]) + cardProb(compCards[1]) -
+                    cardProb(compCards[0]) * cardProb(compCards[1])
             } else if firstCardWinner == Human {
-                
+                return cardProb(compCards[0]) * cardProb(compCards[1])
             } else {
+                return math.Max(cardProb(compCards[0]), cardProb(compCards[1]))
+            }
+        case 3:
+            firstCardWinner := firstCardWinner(plydCards, mano)
+
+            if firstCardWinner == Computer {
+                return cardProb(plydCards[2]) + cardProb(compCards[0]) -
+                    cardProb(plydCards[2]) * cardProb(compCards[0])
+            } else if firstCardWinner == Human {
+                bestPlay := bestPlay(plydCards, mano, compCards)
+                plydCards = append(plydCards, bestPlay)
+                compCards = removeCard(compCards, bestPlay)
+                return winProb(plydCards, mano, compCards)
+            } else {
+            }
+        case 4:
+            // verify game is not over ?
+            return cardProb(compCards[0])
+        case 5:
+            if len(compCards) > 0 {
+                return cardProb(compCards[0])
+            } else {
+                return cardProb(plydCards[4])
             }
 
     }
@@ -106,7 +126,7 @@ func bestPlay(plydCards []int, mano Player, compCards []int) int {
 
 }
 
-func nextCard(plydCards []int, mano Player, compCards []int) {
+func nextCard(plydCards []int, mano Player, compCards []int) int {
 
     switch (len(plydCards)) {
 
@@ -114,12 +134,26 @@ func nextCard(plydCards []int, mano Player, compCards []int) {
             if mano == Computer {
                 return compCards[0]
             } else {
+                return 40 // human's turn
             }
 
         case 1:
             if mano == Computer {
+                return 40 // human's turn
             } else {
                 return bestPlay(plydCards, mano, compCards)
+            }
+        case 2:
+            firstCardWinner := firstCardWinner(plydCards, mano)
+
+            if firstCardWinner == Computer {
+                return bestPlay(plydCards, mano, compCards)
+            } else if firstCardWinner == Human {
+                return 40 // human's turn
+            } else if mano == Computer {
+                return bestPlay(plydCards, mano, compCards)
+            } else {
+                return 40 // human's turn
             }
 
     }
@@ -133,10 +167,11 @@ func firstCardWinner(plydCards []int, mano Player) Player {
     } else plydCards[0] < playCards[1] {
         return opposite(mano)
     } else {
-        return Noone
-    {
+        return None
+    }
 }
 
+// opposite Human -> Computer, Computer -> Human
 func opposite(player Player) Player {
 
     if player == Computer {
