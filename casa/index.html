@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+
+  <style>
+    body {
+      font-family:sans-serif;
+      font-weight:bold;
+      font-size:28px;
+    }
+
+    .casa {
+      position: absolute;
+      left:200px;
+      top:100px;
+      width:1000px;
+      height:430px;
+    }
+
+    .piso {
+      position: absolute;
+      background-color:#dddddd;
+      width:1260px;
+      height:1850px;
+    }
+
+    .alero {
+      position:absolute;
+      left:100px;
+      width:1030px;
+      height:350px;
+      border:15px black dashed;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    
+    .comedor {
+      position:absolute;
+      top:350px;
+      left:100px;
+      width:1000px;
+      height:430px;
+      text-align:center;
+      border:30px solid black;
+      border-bottom: 15px solid black;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .puerta1 {
+      position:absolute;
+      width:100px;
+      height:30px;
+      top:-30px;
+      left:450px;
+      background:white;
+    }
+    
+    .puerta2 {
+      position:absolute;
+      width:100px;
+      height:15px;
+      bottom:-15px;
+      left:450px;
+      background:white;
+    }
+    
+    .ventana-frente1 {
+      position:absolute;
+      width:250px;
+      height:30px;
+      top:-30px;
+      left:100px;
+      background:white;
+    }
+    
+    .ventana-frente2 {
+      position:absolute;
+      width:250px;
+      height:30px;
+      top:-30px;
+      right:100px;
+      background:white;
+    }
+    
+    .ventana-lateral1 {
+      position:absolute;
+      width:30px;
+      height:150px;
+      top:100px;
+      left:-30px;
+      background:white;
+    }
+
+    .ventana-lateral2 {
+      position:absolute;
+      width:30px;
+      height:150px;
+      top:100px;
+      right:-30px;
+      background:white;
+    }
+
+    #alaizq {
+      position:absolute;
+      left:100px;
+      top:810px;
+      width:425px;
+    }
+    
+    #alader {
+      position:absolute;
+      left:734px;
+      top:810px;
+      width:425px;
+      transform: rotateY(180deg);
+    }
+    
+    .habitacion1 {
+      position:absolute;
+      width:425px;
+      height:495px;
+      text-align:center;
+      border:15px solid black;
+      border-left: 30px solid black;
+    }
+
+    .banio1 {
+      position:absolute;
+      bottom:0;
+      width:280px;
+      height:130px;
+      color:white;
+      text-align:center;
+      border-top:15px solid black;
+      border-right:15px solid black;
+
+    }
+
+    .habitacion2 {
+      position:absolute;
+      top:525px;
+      width:425px;
+      height:450px;
+      color:white;
+      text-align:center;
+      border-right:15px solid black;
+      border-left: 30px solid black;
+      border-bottom: 30px solid black;
+    }
+
+    .puerta21 {
+      position:absolute;
+      width:15px;
+      height:100px;
+      right:-15px;
+      bottom:10px;
+      background:white;
+    }
+    
+    .ventana21 {
+      position:absolute;
+      width:30px;
+      height:150px;
+      top:77px;
+      left:-30px;
+      background:white;
+    }
+    
+    .banio2 {
+      position:absolute;
+      left:490px;
+      top:1430px;
+      width:250px;
+      height:340px;
+      color:white;
+      background:#dddddd;
+      text-align:center;
+      border:15px solid black;
+      border-bottom: 30px solid black;
+    }
+
+    .puerta211 {
+      position:absolute;
+      width:15px;
+      height:100px;
+      right:-15px;
+      bottom:10px;
+      background:white;
+    }
+    
+    .ventana211 {
+      position:absolute;
+      width:30px;
+      height:80px;
+      top:30px;
+      left:-30px;
+      background:white;
+    }
+
+    .puertabanio2 {
+      position:absolute;
+      width:100px;
+      height:15px;
+      top:-15px;
+      left:70px;
+      background:white;
+    }
+    
+    .ventanabanio2 {
+      position:absolute;
+      width:80px;
+      height:30px;
+      bottom:-30px;
+      left:85px;
+      background:white;
+    }
+    
+    .label1 {
+      position:absolute;
+      left:25px;
+      top:130px;
+    }
+    
+
+    
+  </style>
+</head>
+<body>
+  <div style="position:relative">
+
+    <div class="casa">
+      <div class="piso"></div>
+      <div class="alero">
+	ALERO 10x3,50 mts
+      </div>
+      <div class="comedor">
+        <div class="puerta1"></div>
+        <div class="ventana-frente1"></div>
+        <div class="ventana-frente2"></div>
+        <div class="ventana-lateral1"></div>
+        <div class="ventana-lateral2"></div>
+        <div class="puerta2"></div>
+	COCINA-COMEDOR-LIVING 10x4,30 mts
+      </div>
+      <div id="alaizq">
+        <div class="habitacion1">
+          <div class="puerta21"></div>
+          <div class="ventana21"></div>
+          <div class="banio1">
+            <div class="puerta211"></div>
+            <div class="ventana211"></div>
+          </div>
+	  <div class="label1">HABITACION 4,25x3,50 mts</div>
+	</div>
+	<div class="habitacion2">
+          <div class="puerta21" style="top:0px"></div>
+          <div class="ventana21" style="top:150px"></div>
+	</div>
+      </div>
+      <div class="banio2">
+	<div class="puertabanio2"></div>
+	<div class="ventanabanio2"></div>
+      </div>
+      <div class="label1" style="left:150px;top:1500px">HABITACION 3,60x4,50</div>
+      <div class="label1" style="left:560px;top:1600px">BA&Nacute;O<br/>2,50x3,40</div>
+    </div>
+  </div>
+
+  <div>
+  </div>
+  <script>
+    // Get the element
+    var elem = document.querySelector('#alaizq');
+
+    // Create a copy of it
+    var clone = elem.cloneNode(true);
+
+    // Update the ID and add a class
+    clone.id = 'alader';
+//    clone.classList.add('text-large');
+
+    // Inject it into the DOM
+    elem.after(clone);
+  </script>
+</body>
+</html>
+
