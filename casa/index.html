@@ -20,7 +20,7 @@
       position: absolute;
       background-color:#dddddd;
       width:1260px;
-      height:1960px;
+      height:1980px;
     }
 
     .alero {
@@ -110,7 +110,7 @@
     .habitacion1 {
       position:absolute;
       width:425px;
-      height:495px;
+      height:515px;
       text-align:center;
       border:15px solid black;
       border-left: 30px solid black;
@@ -119,8 +119,8 @@
     .banio1 {
       position:absolute;
       bottom:-1px;
-      width:280px;
-      height:130px;
+      width:290px;
+      height:150px;
       text-align:center;
       border-top:15px solid black;
       border-right:15px solid black;
@@ -129,7 +129,7 @@
 
     .habitacion2 {
       position:absolute;
-      top:525px;
+      top:545px;
       width:425px;
       height:450px;
       text-align:center;
@@ -159,7 +159,7 @@
     .banio2 {
       position:absolute;
       left:480px;
-      top:1480px;
+      top:1500px;
       width:270px;
       height:340px;
       background:#dddddd;
@@ -213,10 +213,91 @@
     #alader .label1 {
       transform: rotateY(180deg);
     }
-    
+
+    .pared-frente {
+      position:relative;
+      background:#938671;
+      width:1050px;
+      height:350px;
+      margin:auto;
+      margin-bottom:50px;
+    }
+
+    .pared-frente .label {
+	position:absolute;
+	height:30px;
+	bottom:200px;
+      display:flex;
+      justify-content:center;
+      font-size:18px;
+      text-align:center;
+    }
+
+    .pared-frente .ventana {
+	position:absolute;
+	width:120px;
+	height:200px;
+	bottom:0;
+	background-image:url("ventana-frente.jpeg");
+	background-size:120px 200px;
+	color:red;
+      display:flex;
+      justify-content:center;
+      font-size:18px;
+    }
+
+    .pared-frente .puerta {
+	position:absolute;
+	width:90px;
+	height:200px;
+	bottom:0;
+    }
+
+    .pared-frente .piso {	
+	position:absolute;
+	width:1250px;
+	height:10px;
+	bottom:-10px;
+	left:-100px;
+	background:#555555;
+    }
+
+    .pared-frente .chapa {
+	position:absolute;
+	width:1050px;
+	height:80px;
+	left:0px;
+	bottom:250px;
+	background-image:url("chapa.png");
+	background-size:100px 80px;
+    }
   </style>
 </head>
 <body>
+  <div style="position:relative">
+    <div class="pared-frente">
+      <div class="chapa"></div>
+      <div class="label" style="left:-100px;width:100px">vereda<br /> 1 mts</div>
+      <div class="label" style="left:0;width:90px">0,90 mts</div>
+      <div class="label" style="left:90px;width:120px">1,20 mts</div>
+      <div class="ventana" style="left:90px"></div>
+      <div class="label" style="left:210px;width:70px">0,70 mts</div>
+      <div class="label" style="left:280px;width:120px">1,20 mts</div>
+      <div class="ventana" style="left:280px"></div>
+      <div class="label" style="left:400px;width:70px">0,70 mts</div>
+      <div class="label" style="left:470px;width:90px">0,90 mts</div>
+      <img src="puerta-frente.png" class="puerta" style="left:470px" />
+      <div class="label" style="left:560px;width:70px">0,70 mts</div>
+      <div class="label" style="left:630px;width:120px">1,20 mts</div>
+      <div class="ventana" style="left:630px"></div>
+      <div class="label" style="left:750px;width:70px">0,70 mts</div>
+      <div class="label" style="left:820px;width:120px">1,20 mts</div>
+      <div class="ventana" style="left:820px"></div>
+      <div class="label" style="left:940px;width:90px">0,90 mts</div>
+      <div class="label" style="right:-100px;width:100px">vereda<br />1 mts</div>
+      <div class="piso"></piso>
+    </div>
+  </div>
   <div style="position:relative">
 
     <div class="casa">
@@ -242,7 +323,7 @@
           <div class="banio1">
             <div class="puerta211"></div>
             <div class="ventana211"></div>
-	    <div class="label1" style="left:20px;top:50px">BA&Ntilde;O 1,30x2,80</div>
+	    <div class="label1" style="left:20px;top:50px">BA&Ntilde;O 1,50x2,90</div>
           </div>
 	  <div class="label1">HABITACION 4,25x3,50 mts</div>
 	</div>
