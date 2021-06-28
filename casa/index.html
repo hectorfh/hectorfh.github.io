@@ -214,11 +214,59 @@
       transform: rotateY(180deg);
     }
 
+    .galpon {
+      position:absolute;
+      left:115px;
+      top:1670px;
+      width:350px;
+      height:140px;
+      background:#dddddd;
+      text-align:center;
+      border:15px solid black;
+      border-bottom: 30px solid black;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .galpon .porton {
+      position:absolute;
+      width:250px;
+      height:30px;
+      bottom:-30px;
+      left:50px;
+      background:white;
+    }
+
+    .pieza-del-galpon {
+      position:absolute;
+      left:100px;
+      top:1375px;
+      width:350px;
+      height:295px;
+      background:#dddddd;
+      text-align:center;
+      border-left: 30px solid black;
+      border-bottom: 15px solid black;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .pieza-del-galpon .ventana {
+      position:absolute;
+      width:30px;
+      height:180px;
+      left:-30px;
+      top:55px;
+      background:white;
+    }
+
     .pared-frente {
       position:relative;
       background:#938671;
       width:1050px;
-      height:350px;
+      height:340px;
       margin:auto;
       margin-bottom:50px;
     }
@@ -271,6 +319,147 @@
 	background-image:url("chapa.png");
 	background-size:100px 80px;
     }
+
+    .cara-oeste {
+	position:relative;
+	margin:auto;
+	margin-top:200px;
+      margin-bottom:50px;
+    }
+    
+    .cara-oeste .pared {
+      position:relative;
+      background:#938671;
+      width:1440px;
+      height:250px;
+      margin:auto;
+    }
+    
+    .cara-oeste .pared-1 {
+      position:absolute;
+      background:#938671;
+      top:-80px;
+      width:25px;
+      height:100px;
+    }
+    
+    .cara-oeste .pared-2 {
+      position:absolute;
+      background:#938671;
+      top:-80px;
+      right: 0px;
+      width:25px;
+      height:100px;
+    }
+    
+    .cara-oeste .chapa {
+	position:absolute;
+	width:1390px;
+	height:80px;
+	left:25px;
+	bottom:250px;
+	background-image:url("chapa.png");
+	background-size:100px 80px;
+    }
+
+    .cara-oeste .ventana {
+	position:absolute;
+	width:180px;
+	height:200px;
+	bottom:0;
+	background-image:url("ventana-frente.jpeg");
+	background-size:180px 200px;
+    }
+
+    .cara-oeste .ventana-banio {
+	position:absolute;
+	width:80px;
+	height:40px;
+	bottom:160px;
+	background-image:url("ventana-frente.jpeg");
+	background-size:80px 70px;
+    }
+
+    .cara-oeste .label {
+	position:absolute;
+	height:30px;
+	bottom:200px;
+      display:flex;
+      justify-content:center;
+      font-size:18px;
+      text-align:center;
+    }
+
+    .cara-este {
+	position:relative;
+	margin:auto;
+	margin-top:200px;
+      margin-bottom:50px;
+    }
+    
+    .cara-este .pared {
+      position:relative;
+      background:#938671;
+      width:1440px;
+      height:250px;
+      margin:auto;
+    }
+    
+    .cara-este .pared-1 {
+      position:absolute;
+      background:#938671;
+      top:-80px;
+      width:25px;
+      height:100px;
+    }
+    
+    .cara-este .pared-2 {
+      position:absolute;
+      background:#938671;
+      top:-80px;
+      right: 0px;
+      width:25px;
+      height:100px;
+    }
+    
+    .cara-este .chapa {
+	position:absolute;
+	width:1390px;
+	height:80px;
+	left:25px;
+	bottom:250px;
+	background-image:url("chapa.png");
+	background-size:100px 80px;
+    }
+
+    .cara-este .ventana {
+	position:absolute;
+	width:180px;
+	height:200px;
+	bottom:0;
+	background-image:url("ventana-frente.jpeg");
+	background-size:180px 200px;
+    }
+
+    .cara-este .ventana-banio {
+	position:absolute;
+	width:80px;
+	height:40px;
+	bottom:160px;
+	background-image:url("ventana-frente.jpeg");
+	background-size:80px 70px;
+    }
+
+    .cara-este .label {
+	position:absolute;
+	height:30px;
+	bottom:200px;
+      display:flex;
+      justify-content:center;
+      font-size:18px;
+      text-align:center;
+    }
+
   </style>
 </head>
 <body>
@@ -296,6 +485,64 @@
       <div class="label" style="left:940px;width:90px">0,90 mts</div>
       <div class="label" style="right:-100px;width:100px">vereda<br />1 mts</div>
       <div class="piso"></piso>
+    </div>
+  </div>
+  <div style="position:relative">
+    <div class="cara-oeste">
+    <div class="label" style="position:relative;top:-90px;margin:auto;width:1400px">OESTE (da al quincho)</div>
+    <div class="pared">
+      <div class="pared-1"></div>
+      <div class="pared-2"></div>
+      <div class="chapa"></div>
+      
+      <div class="label" style="left:-100px;width:100px">alero<br /> 4 mts</div>
+      <div class="label" style="left:0;width:115px">1,15 mts</div>
+      <div class="label" style="left:115px;width:180px">1,80 mts</div>
+      <div class="ventana" style="left:115px"></div>
+      <div class="label" style="left:295px;width:230px">2,30 mts</div>
+      <div class="label" style="left:525px;width:180px">1,80 mts</div>
+      <div class="ventana" style="left:525px;height:120px;bottom:80px"></div>
+      <div class="label" style="left:295px;width:230px">2,30 mts</div>
+      <div class="label" style="left:525px;width:180px">1,80 mts</div>
+      <div class="ventana" style="left:525px;height:120px;bottom:80px"></div>
+      <div class="label" style="left:705px;width:135px">1,35 mts</div>
+      <div class="label" style="left:840px;width:80px">0,80 mts</div>
+      <div class="ventana-banio" style="left:840px;height:40px;bottom:160px"></div>
+      <div class="label" style="left:920px;width:105px">1,05 mts</div>
+      <div class="label" style="left:1025px;width:180px">1,80 mts</div>
+      <div class="ventana" style="left:1025px;height:120px;bottom:80px"></div>
+      <div class="label" style="left:1205px;width:235px">2,35 mts</div>
+      <div class="label" style="right:-100px;width:100px">vereda<br />1 mts</div>
+    </div>
+    </div>
+  </div>
+  <div style="position:relative">
+    <div class="cara-este">
+    <div class="label" style="position:relative;top:-90px;margin:auto;width:1400px">ESTE (da a la escuela)</div>
+    <div class="pared">
+      <div class="pared-1"></div>
+      <div class="pared-2"></div>
+      <div class="chapa"></div>
+      
+      <div class="label" style="right:-100px;width:100px">alero<br /> 4 mts</div>
+      <div class="label" style="right:0;width:115px">1,15 mts</div>
+      <div class="label" style="right:115px;width:180px">1,80 mts</div>
+      <div class="ventana" style="right:115px"></div>
+      <div class="label" style="right:295px;width:230px">2,30 mts</div>
+      <div class="label" style="right:525px;width:180px">1,80 mts</div>
+      <div class="ventana" style="right:525px;height:120px;bottom:80px"></div>
+      <div class="label" style="right:295px;width:230px">2,30 mts</div>
+      <div class="label" style="right:525px;width:180px">1,80 mts</div>
+      <div class="ventana" style="right:525px;height:120px;bottom:80px"></div>
+      <div class="label" style="right:705px;width:135px">1,35 mts</div>
+      <div class="label" style="right:840px;width:80px">0,80 mts</div>
+      <div class="ventana-banio" style="right:840px;height:40px;bottom:160px"></div>
+      <div class="label" style="right:920px;width:185px">1,85 mts</div>
+      <div class="label" style="right:1105px;width:180px">1,80 mts</div>
+      <div class="ventana" style="right:1105px;height:120px;bottom:80px"></div>
+      <div class="label" style="right:1285px;width:160px">1,60 mts</div>
+      <div class="label" style="left:-100px;width:100px">vereda<br />1 mts</div>
+    </div>
     </div>
   </div>
   <div style="position:relative">
@@ -332,6 +579,14 @@
           <div class="ventana21" style="top:150px"></div>
 	  <div class="label1" style="left:20px;top:200px">HABITACION 3,50x4,50</div>
 	</div>
+      </div>
+      <div class="galpon">
+	<div class="porton"></div>
+	GALPON 3,50x1,40
+      </div>
+      <div class="pieza-del-galpon">
+	<div class="ventana"></div>
+	HABITACION 3,50x2,90
       </div>
       <div class="banio2">
 	<div class="puertabanio2"></div>
