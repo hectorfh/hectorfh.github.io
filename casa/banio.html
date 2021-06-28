@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+
+  <style>
+    body {
+      font-family:sans-serif;
+      font-weight:bold;
+      font-size:28px;
+    }
+
+    .cocina {
+      position:absolute;
+      background:#E1EEF8;
+      left:0px;
+      top:50px;
+      width:1060px;
+      height:460px;
+      margin-bottom:50px;
+      background:url('living.png');
+      background-size: 1060px 460px;
+    }
+
+    .cocina .mesada1 {
+	position: absolute;
+	left:29px;
+	bottom:14px;
+	width:60px;
+	height:120px;
+	border: black solid 1px;
+	background: white;
+    }
+    
+    .cocina .lavavajillas {
+	position: absolute;
+	left:92px;
+	bottom:16px;
+	width:60px;
+	height:65px;
+	background:url('lavavajillas.png');
+	background-size: 60px 65px;
+	transform: rotateX(180deg);
+    }
+    
+    .cocina .mesada2 {
+	position: absolute;
+	left:150px;
+	bottom:14px;
+	width:150px;
+	height:60px;
+	border: black solid 1px;
+	background: white;
+    }
+    
+    .cocina .horno {	
+	position: absolute;
+	left:302px;
+	bottom:15px;
+	width:60px;
+	height:65px;
+	background:url('horno.png');
+	background-size: 60px 65px;
+    }
+    
+    .cocina .bacha-cocina {	
+	position: absolute;
+	left:160px;
+	bottom:20px;
+	width:60px;
+	height:40px;
+	background:url('bacha-cocina.png');
+	background-size: 60px 40px;
+    }
+    
+    #banioder {
+	left: unset;
+	right:0px;
+	transform: rotateY(180deg);	     
+    }
+
+    .banio {
+      position:absolute;
+      background:#E1EEF8;
+      left:0px;
+      top:580px;
+      width:290px;
+      height:150px;
+      margin-bottom:50px;
+      border: black solid 15px;
+      border-left: black solid 20px;
+    }
+
+    .banio .bacha {
+	position: absolute;
+	left:210px;
+	top:-9px;
+	width:50px;
+	height:70px;
+	background:url('bacha.png');
+	background-size: 50px 70px;
+	transform: rotate(-90deg);
+	border: black solid 1px;
+    }
+	
+    .banio .inodoro {
+	position: absolute;
+	left:110px;
+	top:8px;
+	width:70px;
+	height:55px;
+	background:url('inodoro.png');
+	background-size: 70px 55px;
+	transform: rotate(-90deg);
+    }
+	
+    .banio .banera {
+	position: absolute;
+	left:-35px;
+	top:30px;
+	width:150px;
+	height:85px;
+	background:url('banera.png');
+	background-size: 150px 85px;
+	transform: rotate(-90deg);
+	border: black solid 1px;
+    }
+	
+    .banio .puerta {
+	position: absolute;
+	left:210px;
+	top:60px;
+	width:80px;
+	height:80px;
+	background:url('puerta.png');
+	background-size: 80px 80px;
+	transform: rotate(-90deg);
+    }
+	
+    .banio .entrada {
+	position: absolute;
+	right:-15px;
+	bottom:10px;
+	width:15px;
+	height:80px;
+	background: white;
+    }
+    
+    .banio .ventana {
+	position: absolute;
+	left:-20px;
+	top:35px;
+	width:20px;
+	height:80px;
+	background: white;
+    }
+
+    .banio2 {
+      position:absolute;
+      background:#E1EEF8;
+      left:370px;
+      top:830px;
+      width:270px;
+      height:340px;
+      margin-bottom:50px;
+      border: black solid 15px;
+      border-bottom: black solid 20px;
+    }
+
+    .banio2 .bacha {
+	position: absolute;
+	right:0px;
+	bottom:70px;
+	width:50px;
+	height:70px;
+	background:url('bacha.png');
+	background-size: 50px 70px;
+	border: black solid 1px;
+	//transform: rotate(90deg);
+    }
+	
+    .banio2 .inodoro {
+	position: absolute;
+	left:115px;
+	bottom:8px;
+	width:70px;
+	height:55px;
+	background:url('inodoro.png');
+	background-size: 70px 55px;
+	transform: rotate(90deg);
+    }
+	
+    .banio2 .banera {
+	position: absolute;
+	left:-40px;
+	bottom:40px;
+	width:150px;
+	height:85px;
+	background:url('banera.png');
+	background-size: 150px 85px;
+	transform: rotate(90deg) rotateX(180deg);
+	border: black solid 1px;
+	border-left: black solid 15px;
+    }
+	
+    .banio2 .puerta {
+	position: absolute;
+	left:95px;
+	top:0px;
+	width:80px;
+	height:80px;
+	background:url('puerta.png');
+	background-size: 80px 80px;
+	transform: rotateX(180deg);
+    }
+	
+    .banio2 .entrada {
+	position: absolute;
+	left:95px;
+	top:-15px;
+	width:80px;
+	height:15px;
+	background: white;
+    }
+    
+    .banio2 .ventana {
+	position: absolute;
+	left:95px;
+	bottom:-20px;
+	width:80px;
+	height:20px;
+	background: white;
+    }
+
+    .banio2 .lavarropas {
+	position: absolute;
+	left:0px;
+	top:100px;
+	width:70px;
+	height:70px;
+	background:url('lavarropas.png');
+	background-size: 70px 70px;
+	transform: rotate(-90deg)
+    }
+
+  </style>
+</head>
+<body>
+  <div style="position:relative;width:1040px;height: 1440px;margin:auto">
+    <div class="cocina">
+      <div class="mesada1"></div>
+      <div class="lavavajillas"></div>
+      <div class="mesada2"></div>
+      <div class="bacha-cocina"></div>
+      <div class="horno"></div>
+    </div>
+    <div id="banio" class="banio">
+      <div class="ventana"></div>
+      <div class="banera"></div>
+      <div class="inodoro"></div>
+      <div class="bacha"></div>
+      <div class="puerta"></div>
+      <div class="entrada"></div>
+    </div>
+    <div id="banio2" class="banio2">
+      <div class="ventana"></div>
+      <div class="banera"></div>
+      <div class="inodoro"></div>
+      <div class="bacha"></div>
+      <div class="puerta"></div>
+      <div class="entrada"></div>
+      <div class="lavarropas"></div>
+    </div>
+  </div>
+  <script>
+    // Get the element
+    var elem = document.querySelector('.banio');
+
+    // Create a copy of it
+    var clone = elem.cloneNode(true);
+
+    // Update the ID and add a class
+    clone.id = 'banioder';
+
+    // Inject it into the DOM
+    elem.after(clone);
+    
+  </script>
+</body>
+</html>
+
