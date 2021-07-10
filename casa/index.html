@@ -197,10 +197,10 @@
     
     .ventanabanio2 {
       position:absolute;
-      width:80px;
+      width:120px;
       height:30px;
       bottom:-30px;
-      left:95px;
+      left:75px;
       background:white;
     }
     
@@ -227,6 +227,15 @@
       display:flex;
       align-items:center;
       justify-content:center;
+    }
+
+    .galpon .ventana {
+      position:absolute;
+      width:30px;
+      height:80px;
+      left:-30px;
+      bottom:30px;
+      background:white;
     }
 
     .galpon .porton {
@@ -375,7 +384,7 @@
 	position:absolute;
 	width:80px;
 	height:40px;
-	bottom:160px;
+	bottom:180px;
 	background-image:url("ventana-frente.jpeg");
 	background-size:80px 70px;
     }
@@ -445,7 +454,7 @@
 	position:absolute;
 	width:80px;
 	height:40px;
-	bottom:160px;
+	bottom:180px;
 	background-image:url("ventana-frente.jpeg");
 	background-size:80px 70px;
     }
@@ -458,6 +467,15 @@
       justify-content:center;
       font-size:18px;
       text-align:center;
+    }
+
+    .pared-frente .porton {
+	position:absolute;
+	bottom:0;
+	width:250px;
+	height:200px;
+	background-image:url("porton.png");
+	background-size:250px 200px;
     }
 
   </style>
@@ -506,12 +524,15 @@
       <div class="label" style="left:525px;width:180px">1,80 mts</div>
       <div class="ventana" style="left:525px;height:120px;bottom:80px"></div>
       <div class="label" style="left:705px;width:135px">1,35 mts</div>
-      <div class="label" style="left:840px;width:80px">0,80 mts</div>
-      <div class="ventana-banio" style="left:840px;height:40px;bottom:160px"></div>
+      <div class="label" style="left:840px;width:80px; bottom:215px">0,80 mts</div>
+      <div class="ventana-banio" style="left:840px;height:40px"></div>
       <div class="label" style="left:920px;width:105px">1,05 mts</div>
       <div class="label" style="left:1025px;width:180px">1,80 mts</div>
       <div class="ventana" style="left:1025px;height:120px;bottom:80px"></div>
-      <div class="label" style="left:1205px;width:235px">2,35 mts</div>
+      <div class="label" style="right:130px;width:105px">1,05 mts</div>
+      <div class="label" style="right:50px;width:80px">0,80 mts</div>
+      <div class="ventana-banio" style="right:50px;height:40px;bottom:160px"></div>
+      <div class="label" style="right:0;width:50px">0,50 mts</div>
       <div class="label" style="right:-100px;width:100px">vereda<br />1 mts</div>
     </div>
     </div>
@@ -535,14 +556,29 @@
       <div class="label" style="right:525px;width:180px">1,80 mts</div>
       <div class="ventana" style="right:525px;height:120px;bottom:80px"></div>
       <div class="label" style="right:705px;width:135px">1,35 mts</div>
-      <div class="label" style="right:840px;width:80px">0,80 mts</div>
-      <div class="ventana-banio" style="right:840px;height:40px;bottom:160px"></div>
+      <div class="label" style="right:840px;width:80px;bottom:215px">0,80 mts</div>
+      <div class="ventana-banio" style="right:840px;height:40px"></div>
       <div class="label" style="right:920px;width:185px">1,85 mts</div>
       <div class="label" style="right:1105px;width:180px">1,80 mts</div>
       <div class="ventana" style="right:1105px;height:120px;bottom:80px"></div>
       <div class="label" style="right:1285px;width:160px">1,60 mts</div>
       <div class="label" style="left:-100px;width:100px">vereda<br />1 mts</div>
     </div>
+    </div>
+  </div>
+  <div style="position:relative">
+    <div class="pared-frente">
+    <div class="label" style="position:relative;top:-30px;margin:auto;width:1050px">ATRAS</div>
+      <div class="label" style="left:-100px;width:100px">vereda<br /> 1 mts</div>
+      <div class="label" style="left:0;width:70px">0,70 mts</div>
+      <div class="label" style="left:70px;width:250px">2,50 mts</div>
+      <div class="porton" style="left:70px;"></div>
+      <div class="label" style="left:320px;width:145px">1,45 mts</div>
+      <div class="label" style="left:465px;bottom:220px;width:120px">1,20 mts</div>
+      <div class="ventana" style="left:465px;width:120px;height:40px;bottom:180px;	background-size:120px 70px;"></div>
+      <div class="label" style="right:0;width:465px">4,65 mts</div>
+      <div class="label" style="right:-100px;width:100px">vereda<br />1 mts</div>
+      <div class="piso"></piso>
     </div>
   </div>
   <div style="position:relative">
@@ -581,6 +617,7 @@
 	</div>
       </div>
       <div class="galpon">
+	<div class="ventana"></div>
 	<div class="porton"></div>
 	GALPON 3,50x1,40
       </div>
