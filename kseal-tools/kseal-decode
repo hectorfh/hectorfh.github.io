@@ -31,7 +31,7 @@ async function main() {
 
         decoded[key] = atob(value)
     })
-    console.log(decoded)
+    console.log(JSON.stringify(decoded))
 
 }
 
