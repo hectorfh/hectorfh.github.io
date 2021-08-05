@@ -31,7 +31,7 @@ async function main() {
         const tmpFile = `/tmp/kseal-seal-tmp-${key}`
         fs.writeFileSync(tmpFile, value)
         const sealedValue = await execShellCommand(`
-            kubeseal --raw --from-file=/dev/stdin --namespace ${namespace} --name ${app} < ${tmpFile}
+            kubeseal --raw --from-file=${tmpFile} --namespace ${namespace} --name ${app}
         `);
 
         console.log(key + ': ' + sealedValue)
