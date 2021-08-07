@@ -25,7 +25,7 @@ async function main() {
     secrets = JSON.parse(stdin)
     keys = Object.keys(secrets)
 
-    keys.forEach(async key => {
+    for (const key of keys) {
         value = secrets[key]
 
         const tmpFile = `/tmp/kseal-seal-tmp-${key}`
@@ -35,7 +35,7 @@ async function main() {
         `);
 
         console.log(key + ': ' + sealedValue)
-    })
+    }
 
 }
 
