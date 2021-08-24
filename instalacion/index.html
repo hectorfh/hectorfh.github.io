@@ -117,6 +117,20 @@
       border-radius:10px;
       font-weight:bold;
     }
+
+    #alader {
+      position:absolute;
+      left:550px !important;
+      top:830px;
+      width:425px;
+      transform: rotateY(180deg);
+    }
+
+    #alader div {
+      transform: rotateY(180deg);
+    }
+
+
   </style>
 </head>
 <body>
@@ -142,7 +156,7 @@
     <div class="toma" style="left:412px;top:290px">A7</div>
     <div class="toma" style="left:560px;top:290px">A8</div>
 
-    <div class="toma" style="left:780px;top:290px">A8</div>
+    <div class="toma" style="left:165px;top:320px">AJ</div>
     <div class="toma" style="left:820px;top:500px">A8</div>
     <div class="toma" style="left:600px;top:540px">A8</div>
     <div class="toma" style="left:750px;top:540px">A8</div>
@@ -156,17 +170,7 @@
     <div class="luz" style="left:270px;top:540px">AD</div>
     <div class="television" style="left:820px;top:540px">TV</div>
 
-    <div style="display:none">
-    <div class="llave-toma" style="left:725px;top:425px">B1</div>
-    <div class="toma" style="left:755px;top:315px">B2</div>
-    <div class="luz" style="left:780px;top:375px">B3</div>
-
-    <div class="luz" style="left:905px;top:375px">C1</div>
-    <div class="llave-toma" style="left:870px;top:370px">C2</div>
-    </div>
-
-
-    <div class="alaizq" style="position:absolute;left:165px;top:565px;width:290px;height:420px;">
+    <div id="alaizq" style="position:absolute;left:165px;top:565px;width:290px;height:420px;">
 	<div class="ventilador" style="left:130px;top:110px">D1</div>
 	<div class="llave-ventilador" style="right:0px;top:250px">D2</div>
 	<div class="toma" style="left:270px;top:230px">D3</div>
@@ -175,38 +179,40 @@
 	<div class="toma-bajo" style="left:270px;top:80px">D6</div>
  	<div class="toma-bajo" style="left:100px;top:220px">D7</div>
  	<div class="toma-bajo" style="left:0px;top:105px">D8</div>
+ 	<div class="television" style="left:0px;top:220px">TV</div>
 	
 	<div class="llave-toma" style="left:180px;top:250px">B1</div>
 	<div class="toma" style="left:90px;top:330px">B2</div>
 	<div class="luz" style="left:90px;top:285px">B3</div>
 
-	<div class="ventilador" style="left:110px;top:440px">D1</div>
 	<div class="llave-ventilador" style="right:5px;top:405px">D2</div>
 	<div class="toma" style="right:25px;top:405px">D3</div>
 	<div class="toma-bajo" style="left:110px;top:355px">D4</div>
     </div>
+    
+    <div class="ventilador" style="left:270px;top:1005px">D1</div>
+    <div class="toma-bajo" style="left:200px;top:1100px">E2</div>
+    <div class="toma-bajo" style="left:340px;top:1100px">E2</div>
+    <div class="toma-bajo" style="left:170px;top:1010px">E2</div>
+    <div class="toma-bajo" style="left:385px;top:1010px">E2</div>
 
-    <div style="display:none">
-    <div class="llave-toma" style="left:960px;top:140px">E1</div>
-    <div class="toma-bajo" style="left:1140px;top:280px">E2</div>
-    <div class="toma" style="left:960px;top:370px">E3</div>
-    <div class="luz" style="left:1050px;top:280px">E4</div>
-    <div class="toma-exterior" style="left:1165px;top:280px">E5</div>
+    <div class="ventilador" style="left:705px;top:1050px">D1</div>
+    <div class="toma-bajo" style="left:820px;top:1060px">E2</div>
+    <div class="toma-bajo" style="left:600px;top:1060px">E2</div>
+    <div class="toma-bajo" style="left:640px;top:1205px">E2</div>
+    <div class="toma-bajo" style="left:780px;top:1205px">E2</div>
 
-    <div class="llave" style="left:480px;top:420px">F1</div>
-    <div class="luz" style="left:210px;top:533px">F2</div>
-    <div class="luz" style="left:400px;top:538px">F3</div>
-    <div class="luz" style="left:590px;top:540px">F4</div>
-    <div class="toma-exterior" style="left:270px;top:450px">F5</div>
-    <div class="toma-exterior" style="left:500px;top:450px">F6</div>
+    <div class="llave-toma" style="left:550px;top:990px">J1</div>
+    <div class="toma-bajo" style="left:575px;top:1150px">E2</div>
+    <div class="toma" style="left:575px;top:1050px">E2</div>
+    <div class="toma" style="left:410px;top:1050px">E3</div>
 
-    <div class="llave" style="left:240px;top:105px">G1</div>
-    <div class="luz" style="left:177px;top:70px">G2</div>
-    <div class="luz" style="left:380px;top:70px">G3</div>
-    <div class="luz" style="left:600px;top:70px">G4</div>
-    <div class="toma-exterior" style="left:200px;top:74px">G5</div>
-    <div class="toma-exterior" style="left:622px;top:74px">G6</div>
-    </div>
+    <div class="luz" style="left:270px;top:1165px">E4</div>
+    <div class="toma" style="left:200px;top:1125px">E2</div>
+    <div class="toma" style="left:340px;top:1125px">E3</div>
+    <div class="llave-toma" style="left:375px;top:1205px">J1</div>
+    
+    <div class="luz" style="left:130px;top:1165px">E4</div>
   </div>
 
   <div>
@@ -282,5 +288,20 @@
       </ul>
     </div>
   </div>
+  <script>
+    // Get the element
+    var elem = document.querySelector('#alaizq');
+
+    // Create a copy of it
+    var clone = elem.cloneNode(true);
+
+    // Update the ID and add a class
+    clone.id = 'alader';
+
+    // Inject it into the DOM
+    elem.after(clone);
+    
+  </script>
+
 </body>
 </html>
