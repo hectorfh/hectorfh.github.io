@@ -154,6 +154,62 @@ func nextCard(plydCards []int, mano Player, compCards []int) int {
 		} else {
 			return 40 // human's turn
 		}
+	case 3:
+		firstCardWinner := firstCardWinner(plydCards, mano)
+
+		if firstCardWinner == Computer {
+			return 40 // human's turn
+		} else if firstCardWinner == Human {
+			bp := bestPlay(plydCards, mano, compCards)
+			if rates[bp] > rates[plydCards[2]] {
+				return bp
+			} else {
+				return 41 // fold
+			}
+		} else if mano == Computer {
+			return 40 // human's turn
+		} else {
+			bp := bestPlay(plydCards, mano, compCards)
+			if rates[bp] >= rates[plydCards[2]] {
+				return bp
+			} else {
+				return 41 // fold
+			}
+		}
+	case 4:
+		firstCardWinner := firstCardWinner(plydCards, mano)
+
+		if firstCardWinner == Computer {
+			return 40 // human's turn
+		} else if firstCardWinner == Human {
+			return bestPlay(plydCards, mano, compCards)
+		} else if mano == Computer {
+			return bestPlay(plydCards, mano, compCards)
+		} else {
+			return 40 // human's turn
+		}
+	case 5:
+		firstCardWinner := firstCardWinner(plydCards, mano)
+
+		if firstCardWinner == Computer {
+			bp := bestPlay(plydCards, mano, compCards)
+			if rates[bp] >= rates[plydCards[4]] {
+				return bp
+			} else {
+				return 41 // fold
+			}
+		} else if firstCardWinner == Human {
+			return 40 // human's turn
+		} else if mano == Computer {
+			return 40 // human's turn
+		} else {
+			bp := bestPlay(plydCards, mano, compCards)
+			if rates[bp] > rates[plydCards[4]] {
+				return bp
+			} else {
+				return 41 // fold
+			}
+		}
 
 	}
 
@@ -195,5 +251,5 @@ func removeCard(cards []int, card int) []int {
 
 	}
 
-    return append([]int{}, cards...)
+	return append([]int{}, cards...)
 }
