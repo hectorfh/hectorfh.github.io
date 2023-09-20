@@ -1,0 +1,9 @@
+#!/bin/sh
+
+#. ./.env_local
+
+curl http://api.iplatforms.local/auth-test/1 \
+	-X GET \
+	-H "Accept: application/json" \
+	-H "x-platform-name: ipartners"
+

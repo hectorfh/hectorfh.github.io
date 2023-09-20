@@ -1,0 +1,11 @@
+#!/bin/sh
+
+. ./.env_local
+
+curl $URL/auth-test/1 \
+	-v \
+	-X GET \
+	-H "Accept: application/json" \
+	-H "Authorization: Bearer $TOKEN" \
+	-H "x-platform-name: ipartners"
+
