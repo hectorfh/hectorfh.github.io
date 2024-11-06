@@ -1,0 +1,28 @@
++++ b/app/config/config.yml
+@@ -82,6 +82,7 @@ doctrine:
+         default_connection: default
+         connections:
+           default:
++            logging: true
+             driver: pdo_mysql
+
+
+
++++ b/app/config/config_dev.yml
+@@ -7,14 +7,14 @@ framework:
+         strict_requirements: true
+     session:
+         cookie_secure: false
+-        handler_id: session.handler.pdo
++        #handler_id: session.handler.pdo
+ 
+ monolog:
+     handlers:
+         main:
+             type: stream
+             path: '%kernel.logs_dir%/%kernel.environment%.log'
+-            level: error
++            level: debug
+             channels: ['!event']
+             include_stacktraces: true
+         console:
