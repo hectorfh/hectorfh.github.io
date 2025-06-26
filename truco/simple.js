@@ -74,7 +74,7 @@ function winProb(plydCards, mano, compCards)
     }
     else if (plydCards.length == 3) {
     }
-    else if (plydCards.length == 4) {
+    else if (plydCards.length >= 4) {
         // ai gana la primera
         if (mano == 'ai' && val[plydCards[0]] > val[plydCards[1]]
             || mano == 'human' && val[plydCards[0]] < val[plydCards[1]]) {
@@ -84,6 +84,9 @@ function winProb(plydCards, mano, compCards)
             }
             // ai pierde la segunda
             else {
+                if (plydCards.length == 5) {
+                    return compCards[0] >= plydCards[4] ? 1 : 0;
+                }
                 return cardProb(compCards[0]);
             }
         }
@@ -92,7 +95,7 @@ function winProb(plydCards, mano, compCards)
                  || mano == 'human' && val[plydCards[0]] > val[plydCards[1]]) {
             // ai gana la segunda
             if (val[plydCards[2]] < val[plydCards[3]]) {
-                return cardProb(compCards[0]);
+                return cardProb(plydCards.length == 5 ? plydCards[4] : compCards[0]);
             }
             // ai pierde la segunda
             else {
@@ -106,29 +109,25 @@ function winProb(plydCards, mano, compCards)
                 || mano == 'human' && val[plydCards[2]] < val[plydCards[3]]) {
                 return 1;
             }
-            // ai pierde la primera
+            // ai pierde la segunda
             else if (mano == 'ai' && val[plydCards[2]] < val[plydCards[3]]
                 || mano == 'human' && val[plydCards[2]] > val[plydCards[3]]) {
                 return 0;
             }
             // sigue parda !!!
-            else {                
+            else {
+                if (plydCards.length == 5) {
+                    if (mano == 'ai') {
+                        return cardProb(plydCards[5]);
+                    }
+                    else {
+                        return compCards[0] > plydCards[4] ? 1 : 0;
+                    }
+                }
                 return cardProb(compCards[0]);
             }
-            //return cardProb(bestCard(compCards[0], compCards[1]));
         }
 
-    }
-    else if (plydCards.length == 5) {
-        // ai gana la primera
-        if (mano == 'ai' && val[plydCards[0]] > val[plydCards[1]]
-            || mano == 'human' && val[plydCards[0]] < val[plydCards[1]]) {
-            
-        }
-        // ai pierde la primera
-        else if (mano == 'ai' && val[plydCards[0]] < val[plydCards[1]]
-            || mano == 'human' && val[plydCards[0]] > val[plydCards[1]]) {
-        }
     }
 
 }
