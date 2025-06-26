@@ -1,0 +1,61 @@
+Campaign              | code text, createdAt timestamp, expiresAt timestamp, metadata jsonb, trialDays integer
+ CancelationOffer      | createdAt timestamp, metadata jsonb, promoCode text, redeemedAt timestamp, userId text
+ Challenge             | createdAt timestamp, endDate text, id text, name text, startDate text
+ ChatMessage           | createdAt timestamp, deletedAt timestamp, id integer, message text, parentId integer, updatedAt timestamp, userId text, videoId text
+ Collection            | createdAt timestamp, createdBy text, description text, id text, isUnlisted boolean, metadata jsonb, modality ARRAY, name text, order integer, shortDescription text, slug text, status USER-DEFINED, strapiData jsonb, thumbnail text, tvOrder integer, updatedAt timestamp, visibility USER-DEFINED
+ DeletedAccount        | deletedAt timestamp, email text, id text, initiatedBy USER-DEFINED, stripeCustomerId text
+ Event                 | createdAt timestamp, ctaLink text, ctaText text, description text, endsAt timestamp, id integer, isPremiumOnly boolean, startsAt timestamp, tags ARRAY, title text
+ FeaturedContent       | area USER-DEFINED, content jsonb, modality USER-DEFINED, type USER-DEFINED
+ Gift                  | createdAt timestamp, durationMonths integer, email text, expiredEmailSent boolean, expiresAt timestamp, giftType USER-DEFINED, id integer, message text, productId text, recipientId text, redeemedAt timestamp, senderId text
+ GlobalUser            | classUserId text, email text, id integer
+ LivestreamIssue       | createdAt timestamp, metadata jsonb, type USER-DEFINED, videoId text
+ MusicPlaylist         | createdAt timestamp, id integer, playlistId text, playlistType USER-DEFINED, strapiData jsonb, tracks jsonb, updatedAt timestamp, updatedBy text, videoId text
+ News                  | createdAt timestamp, id integer, isPremiumOnly boolean, text text
+ NotificationGroup     | description text, id integer, key text, sendgridGroupId integer, sendgridTemplate text, title text
+ PinnedPosts           | createdAt timestamp, id integer, location USER-DEFINED, postId integer, postRoomId integer
+ PortraitGallery       | category text, metadata jsonb, order integer, path text, tags ARRAY
+ Post                  | createdAt timestamp, headline text, id integer, isDeleted boolean, isFlagged boolean, latestActivityAt timestamp, mediaPath text, mediaType USER-DEFINED, metadata jsonb, parentId integer, postRoomId integer, postType USER-DEFINED, text text, updatedAt timestamp, userId text, videoId text, visibility USER-DEFINED
+ PostAudit             | action USER-DEFINED, id integer, metadata jsonb, postId integer, timestamp timestamp, userId text
+ PostFlag              | createdAt timestamp, metadata jsonb, postId integer, updatedAt timestamp, userId text
+ PostReactions         | createdAt timestamp, postId integer, reaction USER-DEFINED, userId text
+ PostRoom              | id integer, isArchived boolean, manageRoles ARRAY, name text, order integer, slug text
+ PostSpotlightGroup    | createdAt timestamp, id integer, name text, postIds ARRAY, updatedAt timestamp
+ Product               | description text, iapProductIds ARRAY, id text, modality ARRAY, name text, shortDescription text, slug text, status USER-DEFINED, stripeProductId text, thumbnail text, trailerPlaybackId text, type USER-DEFINED
+ Program               | createdAt timestamp, description text, id text, isUnlisted boolean, modality ARRAY, name text, order integer, shortDescription text, slug text, status USER-DEFINED, thumbnail text, tvOrder integer, updatedAt timestamp
+ Receipt               | createdAt timestamp, expiresAt timestamp, latestTransactionId text, platform USER-DEFINED, productId text, receiptMeta jsonb, updatedAt timestamp, userId text
+ ReceiptHistory        | createdAt timestamp, expiresAt timestamp, platform USER-DEFINED, productId text, receiptMeta jsonb, transactionId text, userId text
+ Referral              | awardedAt timestamp, createdAt timestamp, id text, metadata jsonb, redeemedAt timestamp, refereeId text, referrerId text
+ RoomUsers             | appNotification boolean, createdAt timestamp, emailNotification boolean, pushNotification boolean, roomId integer, userId text
+ ScheduledNotification | body text, channel text, createdAt timestamp, id text, isExternalLink boolean, link text, scheduledAt timestamp, sentAt timestamp, title text, userId text
+ Settings              | community jsonb, emailTemplateIds jsonb, excludedArtists ARRAY, featuredCarousel jsonb, featuredWidgets jsonb, onDemandCarousel jsonb, organizations ARRAY, premiumBenefitsContent jsonb, premiumConciergeContent jsonb, siteKey text, siteName text, stripeTestClockDate integer, stripeTestClockId text, updatedAt timestamp
+ ShopifyProduct        | id text, images jsonb, isDeleted boolean, onlineStoreUrl text, price text, title text
+ Studio                | description text, id integer, isActive boolean, name text
+ Subscription          | cancelAtDate timestamp, cancelationMeta jsonb, canceledAtDate timestamp, createdAt timestamp, endDate timestamp, id text, productId text, startDate timestamp, status text, stripeCustomerId text, subscriptionMeta jsonb, trialEndDate timestamp, trialStartDate timestamp
+ SubscriptionPause     | endDate timestamp, id integer, metadata jsonb, startDate timestamp, subscriptionId text
+ Teacher               | bio text, classPhoto text, firstName text, id integer, isSearchable boolean, lastName text, modality ARRAY, phoneNumber text, photos ARRAY, primaryPhoto text, slackUser text, slug text, strapiId integer, userId text, vibe jsonb
+ UsedTrialData         | email text, fingerprint text
+ User                  | aboutMe text, avatar text, createdAt timestamp, email text, firstName text, hashedPassword text, id text, isVerified boolean, lastName text, lastReadNotificationsAt timestamp, lastVerificationEmailSent timestamp, location text, metadata jsonb, onboardingData jsonb, platform USER-DEFINED, privacy USER-DEFINED, revenueCatId text, roles ARRAY, stripeCustomerId text, traits jsonb, updatedAt timestamp, username text, wordsToLiveBy text
+ UserAudit             | action text, afterActionState jsonb, id integer, metadata jsonb, preActionState jsonb, timestamp timestamp, userId text
+ UserChallenge         | challengeId text, joinedAt timestamp, leftAt timestamp, timezone text, userId text
+ UserChannel           | channel text, createdAt timestamp, removeAt timestamp, userId text
+ UserNote              | createdAt timestamp, fromUserId text, id integer, note text, toUserId text, updatedAt timestamp
+ UserProductAccess     | createdAt timestamp, expiresAt timestamp, paymentId text, productId text, status USER-DEFINED, userId text
+ UserSavedCollection   | collectionId text, createdAt timestamp, userId text
+ UserSavedProgram      | createdAt timestamp, programId text, userId text
+ UserSavedVideo        | createdAt timestamp, type USER-DEFINED, userId text, videoId text
+ UserUnlockedProgram   | createdAt timestamp, programId text, userId text
+ UserUnsubscribe       | notificationGroupId integer, type USER-DEFINED, userId text
+ UserVideoWatch        | action USER-DEFINED, createdAt timestamp, durationSec double precision, id integer, metadata jsonb, platform USER-DEFINED, type USER-DEFINED, updatedAt timestamp, userId text, videoId text
+ Video                 | captions jsonb, createdAt timestamp, description text, durationSec double precision, endsAt timestamp, expirationAt timestamp, extendedLiveEndsAt timestamp, holdCardEndsAtSec integer, id text, isUnlisted boolean, modality ARRAY, notes text, notificationsMeta ARRAY, scheduledAt timestamp, shouldExtendLive boolean, slug text, status USER-DEFINED, studioId integer, tags ARRAY, thumbnailId integer, title text, updatedAt timestamp, vibe jsonb, videoMeta jsonb
+ VideoAsset            | id integer, source USER-DEFINED, type USER-DEFINED, value text, videoId text
+ VideoBackup           | assetId text, createdAt timestamp, id integer, metadata jsonb, playbackId text, storageUrl text, videoId text
+ VideoCollection       | collectionId text, order integer, videoId text
+ VideoMeta             | assetId text, id integer, liveStreamId text, playbackId text, policy USER-DEFINED, videoId text
+ VideoPlayOnce         | stationId text, videoId text
+ VideoProduct          | order integer, productId text, videoId text
+ VideoProgram          | order integer, programId text, videoId text
+ VideoShopifyProduct   | id text, imageUrl text, order integer, shopifyProductId text, videoId text
+ WaitlistUser          | country text, createdAt timestamp, email text, firstName text, lastName text
+ Winback               | createdAt timestamp, metadata jsonb, promoCode text, redeemedAt timestamp, setPasswordEmailSentAt timestamp, userId text
+ _TeacherToVideo       | A integer, B text
+ _prisma_migrations    | applied_steps_count integer, checksum character varying, finished_at timestamp with time zone, id character varying, logs text, migration_name character varying, rolled_back_at timestamp with time zone, started_at timestamp with time zone
