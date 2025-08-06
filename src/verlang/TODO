@@ -1,0 +1,14 @@
+Dejo algunas notas para implementar el tema de los arrays.
+
+
+procArray no haría falta. Los arrays se pueden implementar usando
+functionCalls.
+Otra idea, si no, seria usar functionCall con otra configuracion de
+de caracter final. Que seria "[".
+
+Otro punto a resolver hacer el main.js que procese el std input.
+
+
+Habría que leer caracter por caracat (función getChar) de la entrada esrtandar.
+
+Ok, todo bien con los arrays... pero que hay de los maps ? Por ahí podríamos usar "[ ]" para los arrays y "{ }" para los maps.
