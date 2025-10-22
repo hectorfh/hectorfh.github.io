@@ -6,6 +6,15 @@
 <body>
   <div class="container">
 
+    <pre>
+      docker run -w /tmp/core -v /home/ec2-user/buenvecino/core:/tmp/core maven:3.6-openjdk-11 mvn clean install -Dmaven.test.skip=true
+
+docker run -e expensor_core_env=dev -v /home/ec2-user/buenvecino/core/webapps:/usr/local/tomcat/webapps tomcat:9-jdk8-corretto
+
+docker run -v /home/ec2-user/buenvecino/frontend:/basedir  -w /basedir bin/build.sh
+
+    </pre>
+
     <div>
       <h3>
         Ban long php functions
