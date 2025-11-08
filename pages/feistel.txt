@@ -1,0 +1,17 @@
+Difusion y confusion
+
+La idea detras del algoritmo es que la insidencia de alterar un bit cualquier en el texto claro o en la clave tenga la capacidad de afectar a la mayor cantidad de bits del texto encriptado y de la forma menos predecible.
+
+Por que ?
+
+imaginemos que disenamos un algoritmo para cifrar bloques de 8 bits con claves de 8 bits, en el cual si alteramos un bit cualquiera de los primeros 4 de la clave, solo los primeros 4 bits del texto encriptado sufren modificaciones, y si alteramos algun bit de los ultimos 4, solo los ultimos 4 sufren modificaciones.
+
+Conociendo algun input y su correspondiente output, probariamos primero, mediante fuerza bruta las posibles combinaciones de los primeros 4 bits de la clave (16 posibles combinaciones) para descubrir la primera mitad de la clave, y luego probariamos las combinaciones de la segunda mitad (otras 16 combinaciones ) . En el peor de los casos bastarian 32 intentos en total para adivinar la totalidad de la clave.
+
+Pero si el algoritmo que disenamos cumple con las caracteristicas de difusion y confusion, en cuyo caso la alteracion de un bit cualquiera de la clave podria afectar a ninguno, uno, varios o incluso todos los bits del output de forma impredecible, habria que probar todas la combinaciones de la clave de 8 bits, en el peor de los casos serian 256 intentos.
+
+por que la funcion de cifrado no puede consistir en sumas, multiplicaciones, etc, etc
+
+porque seria facion obtener otra funcion que permita , a partir de el resultado y el texto claro, obtener la clave.
+
+por que ?
