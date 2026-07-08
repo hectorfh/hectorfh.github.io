@@ -91,6 +91,7 @@
       cchar = getChar()
     }
 
+    // sttring
     if (cchar == '"') {
       let str = ''
       let escape = false
@@ -122,6 +123,7 @@
       return number;
     }
 
+    // ? y ??
     if (cchar == '?') {
       cchar = getChar()
       if (cchar == '?') {
@@ -133,6 +135,7 @@
       }
     }
 
+    // letra
     if (isLetter(cchar)) {
       let literal = '';
       while (cchar != ' ' && cchar != ')' && cchar != '\n' && cchar != 'EOF') {

@@ -1,3 +1,36 @@
+Primera condicion
+
+Es necesario que para la funcion que definamos para encriptar, no exista otra funcion que permita obtener la clave a partir del texto plano y el texto cifrado.
+
+
+Por ejemplo, no podemos utilizar la operacion suma para encriptar:
+
+texto claro = 4
+clave = 2
+texto encriptado = texto claro + clave = 6
+
+Ya que existe la funcion "resta" que nos permite obtener la clave a partir del texto claro y el encriptado:
+
+clave = texto encriptado - texto claro = 2
+
+Para resumir:
+
+Existe la funcion "f" que permite obtener el texto encriptado (encriptar):
+
+f(texto claro, clave) = texto encriptado
+
+Existe la funcion "g" que permite obtener el texto claro (desencriptar):
+
+(texto encriptado, clave) = texto claro
+
+* La funcion "f" y "g" podrian ser la misma.
+
+Pero no debe existir una funcion "h" que permita obtener la clave a partir del texto claro y del encriptado:
+
+h(texto claro, texto encriptado) = clave
+
+* OJO, si la clave no se reutilizara, esta condicion no tiene ninguna importancia.
+
 Difusion y confusion
 
 La idea detras del algoritmo es que la insidencia de alterar un bit cualquier en el texto claro o en la clave tenga la capacidad de afectar a la mayor cantidad de bits del texto encriptado y de la forma menos predecible.
@@ -10,8 +43,12 @@ Conociendo algun input y su correspondiente output, probariamos primero, mediant
 
 Pero si el algoritmo que disenamos cumple con las caracteristicas de difusion y confusion, en cuyo caso la alteracion de un bit cualquiera de la clave podria afectar a ninguno, uno, varios o incluso todos los bits del output de forma impredecible, habria que probar todas la combinaciones de la clave de 8 bits, en el peor de los casos serian 256 intentos.
 
-por que la funcion de cifrado no puede consistir en sumas, multiplicaciones, etc, etc
+Ataque meet in the middle.
 
-porque seria facion obtener otra funcion que permita , a partir de el resultado y el texto claro, obtener la clave.
 
-por que ?
+Naturaleza iterativa.
+
+Los algoritmos populares de cifrado simetrico de bloques como el DES o el AES, para cumplir con los requisitos mencionados, son de una naturaleza iterativa y se basan en la repeticion de transformaciones simples.
+
+Es decir que al input se le aplican una serie de transformaciones para luego, al resultado obtenido, volver a aplicarle la misma serie de transformaciones N veces.
+
